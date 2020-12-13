@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/chelseaharris137/kafkaESK#readme",
   "dependencies": {
+    "node-sass": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
@@ -36,6 +37,8 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
     "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0",
