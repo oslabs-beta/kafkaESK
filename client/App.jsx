@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Nav from "./components/Nav.jsx";
 import "./styles/app.scss";
 
 class App extends Component {
@@ -9,9 +10,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <p>Hello World</p>
-      </div>
+      <Nav />
+      // <div>
+      //   <p>Hello World</p>
+      // </div>
     );
   }
 }
