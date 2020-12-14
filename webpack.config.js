@@ -23,6 +23,12 @@ module.exports = {
         test: /\.(css|scss)$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
+      {
+        test: /\.(jpg|jpeg|png)$/,
+        use: {
+          loader: "url-loader",
+        },
+      },
     ],
   },
   mode: "development",
