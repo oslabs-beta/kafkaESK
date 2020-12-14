@@ -1,0 +1,10 @@
+$font-stack: "Questrial", sans-serif;
+$primary-color: #333;
+$primary-color-background: #b0b0b0;
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+  color: $primary-color;
+  background-color: $primary-color-background;
+}
