@@ -1,0 +1,15 @@
+#mainchart {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  gap: 10px 10px;
+  grid-template-areas: ". . ";
+  width: 90%;
+  color: #ffffff;
+  background-color: #292929;
+  opacity: 80%;
+  border-radius: 2px;
+  padding: 15px 15px 15px 15px;
+  //height: 70px;
+  align-items: center;
+}

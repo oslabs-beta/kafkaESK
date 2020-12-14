@@ -1,15 +1,14 @@
 $primary-color: #fff;
-$primary-color-font: #333;
+$primary-color-font: #6e6e6e;
 
 nav {
   display: grid;
-  grid-template-columns: min-content min-content min-content 1fr min-content min-content min-content;
+  grid-template-columns: min-content 1fr min-content min-content min-content;
   grid-template-rows: 1fr;
   gap: 10px 10px;
-  grid-template-areas: ". . . . . . .";
+  grid-template-areas: ". . . . .";
   width: 90%;
   color: $primary-color-font;
-  background-color: $primary-color;
-  border-radius: 5px;
-  padding: 15px 15px 15px 15px;
+  border-radius: 2px;
+  align-items: center;
 }
