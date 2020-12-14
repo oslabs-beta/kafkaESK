@@ -34,7 +34,7 @@
     "react-dom": "^16.14.0",
     "socket.io": "^3.0.4",
      "chart.js": "^2.9.4",
-    "react-chartjs-2": "^2.11.1",
+    "react-chartjs-2": "^2.11.1"
 
   },
   "devDependencies": {
