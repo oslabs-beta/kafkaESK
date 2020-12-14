@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -10,6 +11,10 @@
     />
 
     <title>KafkaESK</title>
+    <script>
+      var socket = io.connect('http://localhost:8080');
+
+    </script>
   </head>
   <body>
     <div id="root"></div>
