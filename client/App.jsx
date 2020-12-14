@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nav from "./components/Nav.jsx";
+import MainChart from "./components/mainerrorchart.jsx";
 import "./styles/app.scss";
 
 class App extends Component {
@@ -10,10 +11,14 @@ class App extends Component {
 
   render() {
     return (
-      <Nav />
-      // <div>
-      //   <p>Hello World</p>
-      // </div>
+      <div>
+        <div id="container">
+          <Nav />
+        </div>
+        <div id="container">
+          <MainChart />
+        </div>
+      </div>
     );
   }
 }

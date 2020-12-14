@@ -1,24 +1,19 @@
 import React, { Component } from "react";
 import "../styles/nav.scss";
+import Logo from "../images/kafkaesk-logo3.png";
 
-class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Nav = (props) => {
+  return (
+    <nav>
+      <div>
+        <img src={Logo} width="130" />
+      </div>
+      <div>&nbsp;</div>
+      <div>Hello</div>
+      <div>Hello</div>
+      <div>Hello</div>
+    </nav>
+  );
+};
 
-  render() {
-    return (
-      <nav>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>&nbsp;</div>
-        <div>Hello</div>
-        <div>Hello</div>
-        <div>Hello</div>
-      </nav>
-    );
-  }
-}
 export default Nav;
