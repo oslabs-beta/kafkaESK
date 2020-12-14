@@ -1,0 +1,5 @@
+{"error_id":"1", "error_message":"Bad request"}
+{"error_id":"2", "error_message":"Unauthorized error"}
+{"error_id":"3", "error_message":"Not found"}
+{"error_id":"4", "error_message":"Proxy authentication required"}
+{"error_id":"5", "error_message":"Request timeout"}
