@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
   const consumer = kafka.consumer({ groupId: 'test-group' })
 
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'ERROR_400_SENSORS', fromBeginning: true })
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
   const consumer = kafka.consumer({ groupId: 'test-group' })
 
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'ERROR_401_SENSORS', fromBeginning: true })
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
@@ -60,7 +60,7 @@ io.on('connection', (socket) => {
   const consumer = kafka.consumer({ groupId: 'test-group' })
 
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'ERROR_404_SENSORS', fromBeginning: true })
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
@@ -70,12 +70,11 @@ io.on('connection', (socket) => {
     },
   })
 
-  // 
   // Error 407
   const consumer = kafka.consumer({ groupId: 'test-group' })
 
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'ERROR_407_SENSORS', fromBeginning: true })
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
@@ -88,7 +87,7 @@ io.on('connection', (socket) => {
   const consumer = kafka.consumer({ groupId: 'test-group' })
 
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'ERROR_408_SENSORS', fromBeginning: true })
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
