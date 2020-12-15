@@ -26,16 +26,14 @@
   },
   "homepage": "https://github.com/chelseaharris137/kafkaESK#readme",
   "dependencies": {
-
     "express": "^4.17.1",
     "kafkajs": "^1.15.0",
     "node-sass": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "socket.io": "^3.0.4",
-     "chart.js": "^2.9.4",
+    "chart.js": "^2.9.4",
     "react-chartjs-2": "^2.11.1"
-
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
