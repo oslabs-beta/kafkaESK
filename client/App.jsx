@@ -9,6 +9,14 @@ class App extends Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    const socket = io.connect('http://localhost:3333');
+
+      socket.on('anything', function (data, callback) {
+        console.log(data);
+      }); 
+  }
+
   render() {
     return (
       <div>
