@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/nav.scss";
-import Logo from "../images/kafkaesk-logo3.png";
+import Logo from "../images/kafkaesk-logo4.png";
 
 const Nav = (props) => {
   return (
