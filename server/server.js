@@ -1,11 +1,19 @@
+const path = require('path')
 const http = require('http')
 const express = require('express');
 const socketio = require('socket.io');
 
 const app = express(); 
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+});
 
+const cors = require('cors');
+const morgan = require('morgan');
 const { Kafka } = require('kafkajs'); // we need to install kafkajs
 // const { exec } = require('child_process'); // ?
 
@@ -15,18 +23,27 @@ const kafka = new Kafka({
   brokers: ['kafka1:9092', 'kafka2:9092']
 })
 
+
+app.use(cors());
+app.use(morgan('combined'));
 // serve main html to the client 
 // The server root will send our index.html
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  console.log(__dirname); 
+  res.sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
 // setup for socketio: it listens for a ‘connection’ event and 
 // will run the provided function anytime this happens.
 io.on('connection', (socket) => {
   // console logs when client connects
-  console.log('Connected!')
-
+  // test code
+  const testString = "Hello client, this is server";
+  console.log('Websockets is connected!')
+  socket.emit('anything',testString); 
+/*
   // Error 404
   const consumer_404 = kafka.consumer({ groupId: 'window404-group' })
   const window404_error = async () => {
@@ -93,13 +110,14 @@ window405_error()
   
   window407_error()
     .catch((err) => console.error(`error with consumer_407, ${err.message}`, err))
+  */
 })
 
 server.on('error', (err) => {
   console.log(err)
 });
 
-const PORT = 8080 || process.env.PORT;
+const PORT = 3333 || process.env.PORT;
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
