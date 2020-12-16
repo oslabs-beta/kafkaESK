@@ -68,7 +68,7 @@ io.on('connection', (socket) => {
   const consumer_406 = kafka.consumer({ groupId: 'window406-group' });
   const window406_error = async () => {
     await consumer_406.connect();
-    await consumer_406.subscribe({ topic: 'window404_topic' });
+    await consumer_406.subscribe({ topic: 'window406_topic' });
     await consumer_406.run({
       eachMessage: async ({ topic, partition, message }) => {
         socket.emit('window406_topic', message.value.toString());
@@ -82,10 +82,10 @@ io.on('connection', (socket) => {
   );
 
   // Error 407
-  const consumer_407 = kafka.consumer({ groupId: 'window404-group' });
+  const consumer_407 = kafka.consumer({ groupId: 'window407-group' });
   const window407_error = async () => {
     await consumer_407.connect();
-    await consumer_407.subscribe({ topic: 'window404_topic' });
+    await consumer_407.subscribe({ topic: 'window407_topic' });
     await consumer_407.run({
       eachMessage: async ({ topic, partition, message }) => {
         socket.emit('window407_topic', message.value.toString());
