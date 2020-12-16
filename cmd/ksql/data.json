@@ -1,0 +1,102 @@
+Key format: KAFKA_INT 
+Value format: JSON or KAFKA_STRING
+rowtime: 2020/12/15 01:04:59.099 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:04:59.517 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:04:59.977 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:00.077 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:00.494 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:00.657 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:00.681 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:00.786 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:01.080 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:01.195 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:01.357 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:01.799 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:02.164 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:02.205 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:02.396 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:02.480 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:02.714 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:03.081 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:03.429 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:03.830 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:03.961 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:04.091 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:04.573 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:05.062 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:05.493 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:05.664 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:05.764 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:05.837 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:06.108 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:06.432 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:06.897 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:07.123 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:07.274 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:07.567 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:07.791 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:07.820 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:08.256 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:08.427 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:08.806 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:08.922 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:09.319 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:09.670 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:09.834 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:09.936 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:09.983 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:10.334 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:10.408 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:10.422 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:10.814 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:11.140 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:11.491 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:11.710 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:11.721 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:11.840 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:12.018 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:12.339 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:12.812 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:12.972 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:13.219 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:13.344 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:13.360 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:13.607 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:14.038 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:14.448 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:14.882 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:15.024 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:15.334 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:15.632 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:15.782 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:15.788 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:16.117 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:16.405 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:16.553 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:17.032 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:17.296 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:17.462 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:17.507 Z, key: 200, value: {"code":200,"definition":"Successful"}
+rowtime: 2020/12/15 01:05:17.521 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:17.670 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:18.089 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:18.588 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:19.024 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:19.265 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:19.271 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:19.544 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:19.997 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:20.207 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:20.209 Z, key: 407, value: {"code":407,"definition":"Proxy authentication required"}
+rowtime: 2020/12/15 01:05:20.638 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:21.017 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:21.137 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:21.526 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:21.904 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:22.206 Z, key: 404, value: {"code":404,"definition":"Page not found"}
+rowtime: 2020/12/15 01:05:22.520 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:22.814 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:23.150 Z, key: 405, value: {"code":405,"definition":"Method not allowed"}
+rowtime: 2020/12/15 01:05:23.461 Z, key: 302, value: {"code":302,"definition":"Redirect"}
+rowtime: 2020/12/15 01:05:23.777 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
+rowtime: 2020/12/15 01:05:24.261 Z, key: 406, value: {"code":406,"definition":"Not acceptable"}
