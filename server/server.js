@@ -40,7 +40,7 @@ app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
 
 io.on('connection', (socket) => {
-  socket.emit('anything', "hello this is the server right after connection")
+  socket.emit('anything', "Websockets full duplex protocol established. Begin streaming of data from Kafka cluster..."); 
   console.log("websockets connected")
   const consumer = kafka.consumer({ groupId: 'test-group', fromBeginning: true })
    consumer.connect()

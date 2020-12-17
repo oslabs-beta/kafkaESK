@@ -9,9 +9,9 @@ const Nav = (props) => {
         <img src={Logo} width="130" />
       </div>
       <div>&nbsp;</div>
-      <div>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
+      <div>Account</div>
+      <div>Alert</div>
+      <div>More</div>
     </nav>
   );
 };
