@@ -6,16 +6,141 @@ import "./styles/app.scss";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      error: null,
+      isLoaded: false,
+      allFilteredData: [],
+      chartData: {
+        labels: ["01.00", "02.00", "03.00", "04.00", "05.00"],
+        datasets: [{
+          label: "404",
+          fill: false,
+          lineTension: 0.1,
+          backgroundColor: "rgba(225,0,0,0.4)",
+          borderColor: "red", // The main line color
+          borderCapStyle: 'square',
+          borderDash: [], // try [5, 15] for instance
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          // pointBorderColor: "black",
+          pointBackgroundColor: "white",
+          pointBorderWidth: 1,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: "yellow",
+          pointHoverBorderColor: "brown",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          // notice the gap in the data and the spanGaps: true
+          data: [65, 59, 80, 81, 56, 55, 40, ,60,55,30,78],
+          spanGaps: true,
+        }, {
+          label: "405",
+          fill: false,
+          lineTension: 0.1,
+          // backgroundColor: "rgba(255, 206, 86, 0.6)",
+          borderColor: "rgb(255, 206, 86)",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          // pointBorderColor: "white",
+          pointBackgroundColor: "white",
+          pointBorderWidth: 1,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: "brown",
+          pointHoverBorderColor: "yellow",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          // notice the gap in the data and the spanGaps: false
+          data: [10, 20, 60, 95, 64, 78, 90,,70,40,70,89],
+          spanGaps: false,
+        },
+        {
+          label: "406",
+          fill: false,
+          lineTension: 0.1,
+          // backgroundColor: "rgba(54, 162, 235, 0.6)",
+          borderColor: "rgb(54, 162, 235)",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          // pointBorderColor: "white",
+          pointBackgroundColor: "white",
+          pointBorderWidth: 1,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: "brown",
+          pointHoverBorderColor: "yellow",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          // notice the gap in the data and the spanGaps: false
+          data: [14, 23, 40, 35, 24, 78, 50, 30,20,10,19],
+          spanGaps: false,
+        },
+        {
+          label: "407",
+          fill: false,
+          lineTension: 0.1,
+          // backgroundColor: "rgba(255,99,132,0.6)",
+          borderColor: "rgb(255,99,132)",
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          // pointBorderColor: "white",
+          pointBackgroundColor: "white",
+          pointBorderWidth: 1,
+          pointHoverRadius: 8,
+          pointHoverBackgroundColor: "brown",
+          pointHoverBorderColor: "yellow",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          // notice the gap in the data and the spanGaps: false
+          data: [33, 44, 55, 35, 24, 71, 80, 90, 30, 10, 9],
+          spanGaps: false,
+        },],
+      },
+    };
   }
 
-  componentDidMount() {
-    const socket = io.connect('http://localhost:3333');
 
-      socket.on('anything', function (data, callback) {
-        console.log(data);
-      }); 
-  }
+  // componentDidMount() {
+    // const socket = io.connect("http://localhost:3333");
+    
+    // // listners to log messages with every header the front end is listening for 
+
+		// socket.on('anything', function (data, callback) {
+    //   //this.state.chartdata.push(data))
+    //   console.log(" not in chartdata: " + data); 
+    //   // this.setState((state) => {
+    //   //   return {chartData: chartData.push(data)}
+    //   // });
+    //   // [...chartData, data]
+    //   //this.state.chartdata.push(data)
+    //   // console.log(this.state.chartdata);
+    // });
+    
+    // socket.on('404_count', function (message, callback) {
+		// 	console.log(JSON.parse(message));
+    // }); 
+    
+    // socket.on('405_count', function (message, callback) {
+		// 	console.log(JSON.parse(message));
+    // }); 
+    
+    // socket.on('406_count', function (message, callback) {
+		// 	console.log(JSON.parse(message));
+    // }); 
+    
+    // socket.on('407_count', function (message, callback) {
+		// 	console.log(JSON.parse(message));
+		// }); 
+		
+	// }
 
   render() {
     return (
@@ -24,7 +149,7 @@ class App extends Component {
           <Nav />
         </div>
         <div id="container">
-          <MainChart />
+          <MainChart data={this.state.chartData} />
         </div>
       </div>
     );
