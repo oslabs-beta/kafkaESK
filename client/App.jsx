@@ -108,7 +108,15 @@ class App extends Component {
   }
 
 
-  // componentDidMount() {
+  componentDidMount() {
+    const socket = io.connect("http://localhost:3333");
+    // listners to log messages with every header the front end is listening for 
+
+    socket.on('anything', function (data, callback) {
+      //this.state.chartdata.push(data))
+      const testData = document.getElementById("log"); 
+      testData.innerText = testData.innerHTML + data; 
+    });
     // const socket = io.connect("http://localhost:3333");
     
     // // listners to log messages with every header the front end is listening for 
@@ -140,7 +148,7 @@ class App extends Component {
 		// 	console.log(JSON.parse(message));
 		// }); 
 		
-	// }
+	}
 
   render() {
     return (

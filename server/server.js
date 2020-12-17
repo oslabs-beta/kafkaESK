@@ -40,7 +40,7 @@ app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
 
 io.on('connection', (socket) => {
-  socket.emit('anything', "Websockets full duplex protocol established. Begin streaming of data from Kafka cluster..."); 
+  socket.emit('anything', "Websockets full duplex protocol established. Begin streaming data from Kafka cluster..."); 
   console.log("websockets connected")
   const consumer = kafka.consumer({ groupId: 'test-group', fromBeginning: true })
    consumer.connect()
@@ -52,9 +52,9 @@ io.on('connection', (socket) => {
       console.log({
         value: message.value.toString(),
       });
-       socket.broadcast.emit('anything', "hello this is the server"); 
-       socket.broadcast.emit('anything', "hello again"); 
-      console.log(message.value.toString())
+      //  socket.broadcast.emit('anything', "hello this is the server"); 
+      //  socket.broadcast.emit('anything', "hello again"); 
+       console.log(message.value.toString())
        socket.broadcast.emit('anything', message.value.toString()); 
     },
   });
