@@ -1,6 +1,6 @@
 #mainchart {
   display: grid;
-  grid-template-columns: 75% 2% 20%;
+  grid-template-columns: 65% 2% 30%;
   grid-template-rows: 1fr;
   gap: 10px 10px;
   grid-template-areas: ". . . ";
@@ -13,11 +13,13 @@
 }
 #log {
   background-color: #ffffff;
-  width: 90%;
+  //width: 9;
   margin-top: 20px;
   margin-bottom: 20px;
   justify-content: center;
   border-radius: 2px;
   color: red;
   padding: 15px 15px 15px 15px;
+  height: 450px;
+  overflow: scroll;
 }
