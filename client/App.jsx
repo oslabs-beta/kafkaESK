@@ -10,12 +10,31 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const socket = io.connect('http://localhost:3333');
+    const socket = io.connect("http://localhost:3333");
+    
+    // listners to log messages with every header the front end is listening for 
 
-      socket.on('anything', function (data, callback) {
-        console.log(data);
-      }); 
-  }
+		socket.on('anything', function (data, callback) {
+			console.log(data);
+    });
+    
+    socket.on('404_count', function (message, callback) {
+			console.log(JSON.parse(message));
+    }); 
+    
+    socket.on('405_count', function (message, callback) {
+			console.log(JSON.parse(message));
+    }); 
+    
+    socket.on('406_count', function (message, callback) {
+			console.log(JSON.parse(message));
+    }); 
+    
+    socket.on('407_count', function (message, callback) {
+			console.log(JSON.parse(message));
+		}); 
+		
+	}
 
   render() {
     return (
