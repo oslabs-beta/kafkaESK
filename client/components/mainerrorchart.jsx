@@ -4,46 +4,22 @@ import "../styles/mainchart.scss";
 
 const MainChart = (props) => {
   return (
-		<div id='mainchart'>
-			<div>
-				<Line data={props.data} />
-			</div>
-			<div>&nbsp;</div>
-			<div id='log'>
-			
-			</div>
-		</div>
-	);
     <div id="mainchart">
       <div>
-        <Line data={props.data} options={props.options} />
+        <Line data={props.data} />
       </div>
       <div>&nbsp;</div>
       <div id="log">
-        <b>405</b> Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        406 Not acceptable<br></br>
-        407 Proxy authentication required<br></br>
-        405 Method not allowed<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        406 Not acceptable<br></br>
-        407 Proxy authentication required<br></br>
-        405 Method not allowed<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
-        406 Not acceptable<br></br>
-        405 Method not allowed<br></br>
+        <div id="404"></div>
+        <hr></hr>
+        <br></br>
+        <div id="405"></div>
+        <hr></hr>
+        <br></br>
+        <div id="406"></div>
+        <hr></hr>
+        <br></br>
+        <div id="407"></div>
       </div>
     </div>
   );
