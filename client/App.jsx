@@ -115,28 +115,28 @@ class App extends Component {
 
   componentDidMount() {
     const socket = io.connect("http://localhost:3333");
-
+    
     // Connects 404 Error Consumer
-    socket.on("404_ERRORS", function (data, callback) {
+    socket.on("404_ERRORS_PER_MIN", function (data, callback) {
       const testData = document.getElementById("404");
       testData.innerText = testData.innerHTML + data;
     });
 
     // Connects 405 Error Consumer
-    socket.on("405_ERRORS", function (data, callback) {
+    socket.on("405_ERRORS_PER_MIN", function (data, callback) {
       const testData = document.getElementById("405");
       testData.innerText = testData.innerHTML + data;
     });
 
     // Connects 406 Error Consumer
-    socket.on("406_ERRORS", function (data, callback) {
+    socket.on("406_ERRORS_PER_MIN", function (data, callback) {
       const testData = document.getElementById("406");
       testData.innerText = testData.innerHTML + data;
       console.log(data);
     });
 
     // Connects 407 Error Consumer
-    socket.on("407_ERRORS", function (data, callback) {
+    socket.on("407_ERRORS_PER_MIN", function (data, callback) {
       const testData = document.getElementById("407");
       testData.innerText = testData.innerHTML + data;
       console.log(data);
