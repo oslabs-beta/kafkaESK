@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import Nav from "./components/Nav.jsx";
 import MainChart from "./components/mainerrorchart.jsx";
+import AirtableIntegration from "./components/airtable.jsx";
+import SubCharts from "./components/subcharts.jsx";
 import "./styles/app.scss";
 
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       error: null,
       isLoaded: false,
@@ -148,6 +151,12 @@ class App extends Component {
         </div>
         <div id="container">
           <MainChart data={this.state.chartData} />
+        </div>
+        <div id="container">
+          <SubCharts />
+        </div>
+        <div id="container">
+          <AirtableIntegration />
         </div>
       </div>
     );
