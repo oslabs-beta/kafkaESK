@@ -13,8 +13,26 @@ class App extends Component {
       error: null,
       isLoaded: false,
       allFilteredData: [],
+      lineChartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        tooltips: {
+          enabled: true
+        },
+        scales: {
+          xAxes: [
+            {
+              type: 'time',
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 10
+              }
+            }
+          ]
+        }
+      },
       chartData: {
-        labels: ["01.00", "02.00", "03.00", "04.00", "05.00"],
+        labels: [],
         datasets: [
           {
             label: "404",
@@ -36,7 +54,7 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: true
-            data: [65, 59, 80, 81, 56, 55, 40, , 60, 55, 30, 78],
+            data: [],
             spanGaps: true,
           },
           {
@@ -59,7 +77,7 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: false
-            data: [10, 20, 60, 95, 64, 78, 90, , 70, 40, 70, 89],
+            data: [],
             spanGaps: false,
           },
           {
@@ -82,7 +100,7 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: false
-            data: [14, 23, 40, 35, 24, 78, 50, 30, 20, 10, 19],
+            data: [],
             spanGaps: false,
           },
           {
@@ -105,41 +123,145 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: false
-            data: [33, 44, 55, 35, 24, 71, 80, 90, 30, 10, 9],
+            data: [],
             spanGaps: false,
           },
-        ],
+        ]
       },
     };
   }
 
   componentDidMount() {
     const socket = io.connect("http://localhost:3333");
-    
     // Connects 404 Error Consumer
-    socket.on("404_ERRORS_PER_MIN", function (data, callback) {
+    socket.on("404_ERRORS_PER_MIN", data => {
       const testData = document.getElementById("404");
       testData.innerText = testData.innerHTML + data;
+  
+      // parse incoming data
+      const message = JSON.parse(data);
+      // console.log(message.COUNT)
+      
+      // store the current state array in a variable
+      const currDataSets = this.state.chartData.datasets;
+
+      // create a new data variable, spread current array into new array
+      const updatedDataSets = [...currDataSets];
+
+      // push incoming data to new data variable
+      updatedDataSets[0].data.push(message.COUNT);
+      // console.log(currDataSets);
+
+      // variable for storing updated version of state
+      const newChartData = {
+        ...this.state.chartData, // object
+        datasets: [...updatedDataSets], // array
+        labels: this.state.chartData.labels.concat(
+          new Date().toLocaleTimeString()
+        ),
+      };
+      console.log(newChartData);
+      // set the state with the updated variable
+      
+      this.setState({ chartData: newChartData });
+      console.log(this.state);
+
     });
 
     // Connects 405 Error Consumer
-    socket.on("405_ERRORS_PER_MIN", function (data, callback) {
+    socket.on("405_ERRORS_PER_MIN", data => {
       const testData = document.getElementById("405");
       testData.innerText = testData.innerHTML + data;
+      
+      // parse incoming data
+      const message = JSON.parse(data);
+      // console.log(message.COUNT)
+      
+      // store the current state array in a variable
+      const currDataSets = this.state.chartData.datasets;
+
+      // create a new data variable, spread current array into new array
+      const updatedDataSets = [...currDataSets];
+
+      // push incoming data to new data variable
+      updatedDataSets[1].data.push(message.COUNT);
+      // console.log(currDataSets);
+
+      // variable for storing updated version of state
+      const newChartData = {
+        ...this.state.chartData, // object
+        datasets: [...updatedDataSets], // array
+        // labels: this.state.chartData.labels.concat(
+        //   new Date().toLocaleTimeString()
+        // ),
+      };
+      // console.log(newChartData);
+
+      // set the state with the updated variable
+      this.setState({ chartData: newChartData });
+      // console.log(this.state);
+      
     });
 
     // Connects 406 Error Consumer
-    socket.on("406_ERRORS_PER_MIN", function (data, callback) {
+    socket.on("406_ERRORS_PER_MIN", data => {
       const testData = document.getElementById("406");
       testData.innerText = testData.innerHTML + data;
-      console.log(data);
+      
+      // parse incoming data
+      const message = JSON.parse(data);
+      // console.log(message.COUNT)
+      
+      // store the current state array in a variable
+      const currDataSets = this.state.chartData.datasets;
+      // create a new data variable, spread current array into new array
+      const updatedDataSets = [...currDataSets];
+      // push incoming data to new data variable
+      updatedDataSets[2].data.push(message.COUNT);
+      // console.log(currDataSets);
+      // variable for storing updated version of state
+      const newChartData = {
+        ...this.state.chartData, // object
+        datasets: [...updatedDataSets], // array
+        // labels: this.state.chartData.labels.concat(
+        //   new Date().toLocaleTimeString()
+        // ),
+      };
+      console.log(newChartData);
+      // set the state with the updated variable
+      this.setState({ chartData: newChartData });
+      console.log(this.state);
     });
 
     // Connects 407 Error Consumer
-    socket.on("407_ERRORS_PER_MIN", function (data, callback) {
+    socket.on("407_ERRORS_PER_MIN", data => {
       const testData = document.getElementById("407");
       testData.innerText = testData.innerHTML + data;
-      console.log(data);
+      
+      
+      // parse incoming data
+      const message = JSON.parse(data);
+      // console.log(message.COUNT)
+      
+      // store the current state array in a variable
+      const currDataSets = this.state.chartData.datasets;
+      // create a new data variable, spread current array into new array
+      const updatedDataSets = [...currDataSets];
+      // push incoming data to new data variable
+      updatedDataSets[3].data.push(message.COUNT);
+      // console.log(currDataSets);
+      // variable for storing updated version of state
+      const newChartData = {
+        ...this.state.chartData, // object
+        datasets: [...updatedDataSets], // array
+        // labels: this.state.chartData.labels.concat(
+        //   new Date().toLocaleTimeString()
+        // ),
+      };
+      console.log(newChartData);
+      // set the state with the updated variable
+      this.setState({ chartData: newChartData });
+      console.log(this.state);
     });
   }
 
