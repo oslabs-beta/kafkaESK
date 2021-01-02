@@ -33,7 +33,7 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: true
-            data: [65, 59, 80, 81, 56, 55, 40, , 60, 55, 30, 78],
+            data: [],
             spanGaps: true,
           },
           {
@@ -56,7 +56,7 @@ class App extends Component {
             pointRadius: 4,
             pointHitRadius: 10,
             // notice the gap in the data and the spanGaps: false
-            data: [10, 20, 60, 95, 64, 78, 90, , 70, 40, 70, 89],
+            data: [10, 20, 60, 95, 64, 78, 90, 70, 40, 70, 89],
             spanGaps: false,
           },
           {
@@ -111,30 +111,57 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const socket = io.connect("http://localhost:3333");
-    // // listners to log messages with every header the front end is listening for
-    // socket.on('anything', function (data, callback) {
-    //   //this.state.chartdata.push(data))
-    //   console.log(" not in chartdata: " + data);
-    //   // this.setState((state) => {
-    //   //   return {chartData: chartData.push(data)}
-    //   // });
-    //   // [...chartData, data]
-    //   //this.state.chartdata.push(data)
-    //   // console.log(this.state.chartdata);
-    // });
-    // socket.on('404_count', function (message, callback) {
-    // 	console.log(JSON.parse(message));
-    // });
-    // socket.on('405_count', function (message, callback) {
-    // 	console.log(JSON.parse(message));
-    // });
-    // socket.on('406_count', function (message, callback) {
-    // 	console.log(JSON.parse(message));
-    // });
-    // socket.on('407_count', function (message, callback) {
-    // 	console.log(JSON.parse(message));
-    // });
+    const socket = io.connect('http://localhost:3333');
+
+    // Connects 404 Error Consumer
+    // socket.on('404_ERRORS', function (data, callback) {
+    // const testData = document.getElementById('404');
+    // testData.innerText = testData.innerHTML + data;
+
+    // store the current state array in a variable
+    const currDataSets = this.state.chartData.datasets;
+
+    // create a new data variable, spread current array into new array
+    const updatedDataSets = [...currDataSets];
+
+    // push incoming data to new data variable
+    updatedDataSets[0].data.push(20);
+    console.log(currDataSets);
+
+    // variable for storing updated version of state
+    const newChartData = {
+      ...this.state.chartData, // object
+      datasets: [...updatedDataSets], // array
+      // labels: this.state.chartData.labels.concat(
+      //   new Date().toLocaleTimeString()
+      // ),
+    };
+
+    console.log(newChartData);
+    // set the state with the updated variable
+    this.setState({ chartData: newChartData });
+
+    console.log(this.state);
+
+    // Connects 405 Error Consumer
+    socket.on('405_ERRORS', function (data, callback) {
+      const testData = document.getElementById('405');
+      testData.innerText = testData.innerHTML + data;
+    });
+
+    // Connects 406 Error Consumer
+    socket.on('406_ERRORS', function (data, callback) {
+      const testData = document.getElementById('406');
+      testData.innerText = testData.innerHTML + data;
+      console.log(data);
+    });
+
+    // Connects 407 Error Consumer
+    socket.on('407_ERRORS', function (data, callback) {
+      const testData = document.getElementById('407');
+      testData.innerText = testData.innerHTML + data;
+      console.log(data);
+    });
   }
 
   render() {

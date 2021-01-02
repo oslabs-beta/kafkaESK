@@ -10,31 +10,20 @@ const MainChart = (props) => {
       </div>
       <div>&nbsp;</div>
       <div id="log">
+        <div id="404"></div>
+        <hr></hr>
         <br></br>
+        <div id="405"></div>
+        <hr></hr>
         <br></br>
-        404: Not Found <br></br>
+        <div id="406"></div>
+        <hr></hr>
         <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        405: Method Not Allowed <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        406: Not Acceptable <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        407: Proxy Authentication Required <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
+        <div id="407"></div>
       </div>
     </div>
   );
 };
 
+// class Chart extends Component {}
 export default MainChart;

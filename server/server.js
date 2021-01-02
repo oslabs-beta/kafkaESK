@@ -1,9 +1,15 @@
+const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const app = express();
 const server = http.createServer(app);
-const io = socketio(server);
+const io = socketio(server, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST'],
+  },
+});
 
 const cors = require('cors');
 const morgan = require('morgan');
@@ -16,13 +22,16 @@ CompressionCodecs[CompressionTypes.Snappy] = SnappyCodec;
 // instantiating the KafkaJS client by pointing it towards at least one broke
 const kafka = new Kafka({
   clientId: 'my-app',
-  brokers: ['localhost:9092'],
+  brokers: ['localhost:9092', 'localhost:9092'],
 });
 
+app.use(cors());
+app.use(morgan('combined'));
 // serve main html to the client
 // The server root will send our index.html
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
@@ -30,26 +39,58 @@ app.use('/dist', express.static(path.join(__dirname, '../dist')));
 io.on('connection', (socket) => {
   socket.emit(
     'anything',
-    'Websockets full duplex protocol established. Begin streaming of data from Kafka cluster...'
+    'Websockets full duplex protocol established. Begin streaming data from Kafka cluster...'
   );
-  console.log('websockets connected');
-  const consumer = kafka.consumer({
-    groupId: 'test-group',
+
+  // 404 consumer
+  const consumer_404 = kafka.consumer({
+    groupId: 'test-group1',
     fromBeginning: true,
   });
-  consumer.connect();
-  consumer.subscribe({ topic: 'error_count' });
-  consumer.run({
+  consumer_404.connect();
+  consumer_404.subscribe({ topic: '404_ERRORS' });
+  consumer_404.run({
     eachMessage: async ({ topic, partition, message }) => {
-      console.log(topic);
-      console.log(partition);
-      console.log({
-        value: message.value.toString(),
-      });
-      socket.broadcast.emit('anything', 'hello this is the server');
-      socket.broadcast.emit('anything', 'hello again');
-      console.log(message.value.toString());
-      socket.broadcast.emit('anything', message.value.toString());
+      socket.broadcast.emit('404_ERRORS', message.value.toString());
+    },
+  });
+
+  // 405 consumer
+  const consumer_405 = kafka.consumer({
+    groupId: 'test-group2',
+    fromBeginning: true,
+  });
+  consumer_405.connect();
+  consumer_405.subscribe({ topic: '405_ERRORS' });
+  consumer_405.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      socket.broadcast.emit('405_ERRORS', message.value.toString());
+    },
+  });
+
+  // 406 consumer
+  const consumer_406 = kafka.consumer({
+    groupId: 'test-group3',
+    fromBeginning: true,
+  });
+  consumer_406.connect();
+  consumer_406.subscribe({ topic: '406_ERRORS' });
+  consumer_406.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      socket.broadcast.emit('406_ERRORS', message.value.toString());
+    },
+  });
+
+  // 407
+  const consumer_407 = kafka.consumer({
+    groupId: 'test-group4',
+    fromBeginning: true,
+  });
+  consumer_407.connect();
+  consumer_407.subscribe({ topic: '407_ERRORS' });
+  consumer_407.run({
+    eachMessage: async ({ topic, partition, message }) => {
+      socket.broadcast.emit('407_ERRORS', message.value.toString());
     },
   });
 });
