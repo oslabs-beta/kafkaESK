@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "./components/Nav.jsx";
-import MainChart from "./components/mainerrorchart.jsx";
+import MainChart from "./components/lineChart.jsx";
+import BarChart from "./components/barChart.jsx";
 import AirtableIntegration from "./components/airtable.jsx";
 import SubCharts from "./components/subcharts.jsx";
 import "./styles/app.scss";
@@ -38,7 +39,7 @@ class App extends Component {
             label: "404",
             fill: false,
             lineTension: 0.1,
-            backgroundColor: "rgba(225,0,0,0.4)",
+            // backgroundColor: "rgba(225,0,0,0.4)",
             borderColor: "red", // The main line color
             borderCapStyle: "square",
             borderDash: [], // try [5, 15] for instance
@@ -62,7 +63,7 @@ class App extends Component {
             fill: false,
             lineTension: 0.1,
             // backgroundColor: "rgba(255, 206, 86, 0.6)",
-            borderColor: "rgb(255, 206, 86)",
+            borderColor: "rgb(54, 162, 235)",
             borderCapStyle: "butt",
             borderDash: [],
             borderDashOffset: 0.0,
@@ -85,7 +86,7 @@ class App extends Component {
             fill: false,
             lineTension: 0.1,
             // backgroundColor: "rgba(54, 162, 235, 0.6)",
-            borderColor: "rgb(54, 162, 235)",
+            borderColor: "pink",
             borderCapStyle: "butt",
             borderDash: [],
             borderDashOffset: 0.0,
@@ -108,7 +109,7 @@ class App extends Component {
             fill: false,
             lineTension: 0.1,
             // backgroundColor: "rgba(255,99,132,0.6)",
-            borderColor: "rgb(255,99,132)",
+            borderColor: "orange",
             borderCapStyle: "butt",
             borderDash: [],
             borderDashOffset: 0.0,
@@ -148,7 +149,34 @@ class App extends Component {
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
-      // push incoming data to new data variable
+      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        && message.COUNT >= updatedDataSets[0].data[updatedDataSets[0].data.length -1]) {
+          if (this.state.chartData.labels.length > 10) {
+            this.state.chartData.labels.shift()
+          }
+          updatedDataSets[0].data.pop()
+          this.state.chartData.labels.pop()
+
+          updatedDataSets[0].data.push(message.COUNT);
+          console.log(updatedDataSets[0].data)
+          const newChartData = {
+            ...this.state.chartData, // object
+            datasets: [...updatedDataSets], // array
+            labels: this.state.chartData.labels.concat(
+              // new Date().toLocaleTimeString()
+              message["WINDOW_START"]
+            ),
+        };
+        // console.log(newChartData);
+        // set the state with the updated variable
+  
+        this.setState({ chartData: newChartData });
+        // console.log(this.state);
+      } else {
+        if (this.state.chartData.labels.length > 10) {
+          this.state.chartData.labels.shift()
+        }
+        // push incoming data to new data variable
       updatedDataSets[0].data.push(message.COUNT);
       // console.log(currDataSets);
 
@@ -157,14 +185,18 @@ class App extends Component {
         ...this.state.chartData, // object
         datasets: [...updatedDataSets], // array
         labels: this.state.chartData.labels.concat(
-          new Date().toLocaleTimeString()
+          // new Date().toLocaleTimeString()
+          message["WINDOW_START"]
         ),
       };
-      console.log(newChartData);
+      // console.log(newChartData);
       // set the state with the updated variable
-      
+
       this.setState({ chartData: newChartData });
-      console.log(this.state);
+      // console.log(this.state);
+      }
+
+      
 
     });
 
@@ -183,7 +215,28 @@ class App extends Component {
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
-      // push incoming data to new data variable
+      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        && message.COUNT >= updatedDataSets[1].data[updatedDataSets[1].data.length -1]) {
+          updatedDataSets[1].data.pop()
+          this.state.chartData.labels.pop()
+
+          updatedDataSets[1].data.push(message.COUNT);
+          console.log(updatedDataSets[1].data)
+          const newChartData = {
+            ...this.state.chartData, // object
+            datasets: [...updatedDataSets], // array
+            // labels: this.state.chartData.labels.concat(
+            //   // new Date().toLocaleTimeString()
+            //   message["WINDOW_START"]
+            // ),
+        };
+        // console.log(newChartData);
+        // set the state with the updated variable
+  
+        this.setState({ chartData: newChartData });
+        // console.log(this.state);
+      } else {
+        // push incoming data to new data variable
       updatedDataSets[1].data.push(message.COUNT);
       // console.log(currDataSets);
 
@@ -192,14 +245,17 @@ class App extends Component {
         ...this.state.chartData, // object
         datasets: [...updatedDataSets], // array
         // labels: this.state.chartData.labels.concat(
-        //   new Date().toLocaleTimeString()
+        //   // new Date().toLocaleTimeString()
+        //   message["WINDOW_START"]
         // ),
       };
       // console.log(newChartData);
-
       // set the state with the updated variable
+
       this.setState({ chartData: newChartData });
       // console.log(this.state);
+      }
+
       
     });
 
@@ -214,23 +270,50 @@ class App extends Component {
       
       // store the current state array in a variable
       const currDataSets = this.state.chartData.datasets;
+
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
-      // push incoming data to new data variable
+
+      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        && message.COUNT >= updatedDataSets[2].data[updatedDataSets[2].data.length -1]) {
+          updatedDataSets[2].data.pop()
+          this.state.chartData.labels.pop()
+
+          updatedDataSets[2].data.push(message.COUNT);
+          console.log(updatedDataSets[2].data)
+          const newChartData = {
+            ...this.state.chartData, // object
+            datasets: [...updatedDataSets], // array
+            // labels: this.state.chartData.labels.concat(
+            //   // new Date().toLocaleTimeString()
+            //   message["WINDOW_START"]
+            // ),
+        };
+        // console.log(newChartData);
+        // set the state with the updated variable
+  
+        this.setState({ chartData: newChartData });
+        // console.log(this.state);
+      } else {
+        // push incoming data to new data variable
       updatedDataSets[2].data.push(message.COUNT);
       // console.log(currDataSets);
+
       // variable for storing updated version of state
       const newChartData = {
         ...this.state.chartData, // object
         datasets: [...updatedDataSets], // array
         // labels: this.state.chartData.labels.concat(
-        //   new Date().toLocaleTimeString()
+        //   // new Date().toLocaleTimeString()
+        //   message["WINDOW_START"]
         // ),
       };
-      console.log(newChartData);
+      // console.log(newChartData);
       // set the state with the updated variable
+
       this.setState({ chartData: newChartData });
-      console.log(this.state);
+      // console.log(this.state);
+      }
     });
 
     // Connects 407 Error Consumer
@@ -245,23 +328,50 @@ class App extends Component {
       
       // store the current state array in a variable
       const currDataSets = this.state.chartData.datasets;
+
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
-      // push incoming data to new data variable
+
+      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        && message.COUNT >= updatedDataSets[3].data[updatedDataSets[3].data.length -1]) {
+          updatedDataSets[3].data.pop()
+          this.state.chartData.labels.pop()
+
+          updatedDataSets[3].data.push(message.COUNT);
+          console.log(updatedDataSets[3].data)
+          const newChartData = {
+            ...this.state.chartData, // object
+            datasets: [...updatedDataSets], // array
+            // labels: this.state.chartData.labels.concat(
+            //   // new Date().toLocaleTimeString()
+            //   message["WINDOW_START"]
+            // ),
+        };
+        // console.log(newChartData);
+        // set the state with the updated variable
+  
+        this.setState({ chartData: newChartData });
+        // console.log(this.state);
+      } else {
+        // push incoming data to new data variable
       updatedDataSets[3].data.push(message.COUNT);
       // console.log(currDataSets);
+
       // variable for storing updated version of state
       const newChartData = {
         ...this.state.chartData, // object
         datasets: [...updatedDataSets], // array
         // labels: this.state.chartData.labels.concat(
-        //   new Date().toLocaleTimeString()
+        //   // new Date().toLocaleTimeString()
+        //   message["WINDOW_START"]
         // ),
       };
-      console.log(newChartData);
+      // console.log(newChartData);
       // set the state with the updated variable
+
       this.setState({ chartData: newChartData });
-      console.log(this.state);
+      // console.log(this.state);
+      }
     });
   }
 
@@ -275,7 +385,7 @@ class App extends Component {
           <MainChart data={this.state.chartData} />
         </div>
         <div id="container">
-          <SubCharts />
+          <BarChart />
         </div>
         <div id="container">
           <AirtableIntegration />
