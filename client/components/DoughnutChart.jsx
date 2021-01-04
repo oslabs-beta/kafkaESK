@@ -3,7 +3,7 @@ import { Doughnut } from 'react-chartjs-2';
 import '../styles/mainchart.scss';
 
 // doughnut data array corresponds to single total for each label
-// need to determine how to continually update array with 4 aggregate values
+// need to determine how to continually update array with 4 aggregate values that correspond to labels
 class DoughnutChart extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,9 @@ class DoughnutChart extends React.Component {
     const socket = io.connect('http://localhost:3333');
     // Connects 404 Error Consumer
     socket.on('404_ERRORS_PER_MIN', (data) => {
+      // parse incoming data 
       const message = JSON.parse(data);
+      
       // store the current state array in a variable
       const dataArray = this.state.datasets[0].data;
 
