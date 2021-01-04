@@ -1,0 +1,35 @@
+// $font-stack: "Questrial", sans-serif;
+// $primary-color: #333;
+$primary-color-background: #16171b;
+
+#airtablediv {
+  display: grid;
+  grid-template-columns: 49% 1% 49%;
+  grid-template-rows: 1fr;
+  // gap: 5px 5px;
+  grid-template-areas: ". . . ";
+  width: 93%;
+  color: #ffffff;
+  opacity: 80%;
+  border-radius: 2px;
+  margin-left: 1%;
+  margin-bottom: 20px;
+}
+#airtableform {
+  justify-content: center;
+  border-radius: 2px;
+  color: red;
+  padding: 15px 15px 15px 15px;
+  height: 300px;
+  background-color: #202125;
+  opacity: 80%;
+}
+#filler {
+  justify-content: center;
+  border-radius: 2px;
+  color: red;
+  padding: 15px 15px 15px 15px;
+  height: 300px;
+  background-color: #202125;
+  opacity: 80%;
+}
