@@ -14,24 +14,6 @@ class App extends Component {
       error: null,
       isLoaded: false,
       allFilteredData: [],
-      lineChartOptions: {
-        responsive: true,
-        maintainAspectRatio: false,
-        tooltips: {
-          enabled: true
-        },
-        scales: {
-          xAxes: [
-            {
-              type: 'time',
-              ticks: {
-                autoSkip: true,
-                maxTicksLimit: 10
-              }
-            }
-          ]
-        }
-      },
       chartData: {
         labels: [],
         datasets: [
@@ -205,56 +187,56 @@ class App extends Component {
       const testData = document.getElementById("405");
       testData.innerText = testData.innerHTML + data;
       
-      // parse incoming data
-      const message = JSON.parse(data);
-      // console.log(message.COUNT)
+      // // parse incoming data
+      // const message = JSON.parse(data);
+      // // console.log(message.COUNT)
       
-      // store the current state array in a variable
-      const currDataSets = this.state.chartData.datasets;
+      // // store the current state array in a variable
+      // const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
-      const updatedDataSets = [...currDataSets];
+      // // create a new data variable, spread current array into new array
+      // const updatedDataSets = [...currDataSets];
 
-      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
-        && message.COUNT >= updatedDataSets[1].data[updatedDataSets[1].data.length -1]) {
-          updatedDataSets[1].data.pop()
-          this.state.chartData.labels.pop()
+      // if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+      //   && message.COUNT >= updatedDataSets[1].data[updatedDataSets[1].data.length -1]) {
+      //     updatedDataSets[1].data.pop()
+      //     this.state.chartData.labels.pop()
 
-          updatedDataSets[1].data.push(message.COUNT);
-          console.log(updatedDataSets[1].data)
-          const newChartData = {
-            ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
-        };
-        // console.log(newChartData);
-        // set the state with the updated variable
+      //     updatedDataSets[1].data.push(message.COUNT);
+      //     console.log(updatedDataSets[1].data)
+      //     const newChartData = {
+      //       ...this.state.chartData, // object
+      //       datasets: [...updatedDataSets], // array
+      //       // labels: this.state.chartData.labels.concat(
+      //       //   // new Date().toLocaleTimeString()
+      //       //   message["WINDOW_START"]
+      //       // ),
+      //   };
+      //   // console.log(newChartData);
+      //   // set the state with the updated variable
   
-        this.setState({ chartData: newChartData });
-        // console.log(this.state);
-      } else {
-        // push incoming data to new data variable
-      updatedDataSets[1].data.push(message.COUNT);
-      // console.log(currDataSets);
+      //   this.setState({ chartData: newChartData });
+      //   // console.log(this.state);
+      // } else {
+      //   // push incoming data to new data variable
+      // updatedDataSets[1].data.push(message.COUNT);
+      // // console.log(currDataSets);
 
-      // variable for storing updated version of state
-      const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
-      };
-      // console.log(newChartData);
-      // set the state with the updated variable
+      // // variable for storing updated version of state
+      // const newChartData = {
+      //   ...this.state.chartData, // object
+      //   datasets: [...updatedDataSets], // array
+      //   // labels: this.state.chartData.labels.concat(
+      //   //   // new Date().toLocaleTimeString()
+      //   //   message["WINDOW_START"]
+      //   // ),
+      // };
+      // // console.log(newChartData);
+      // // set the state with the updated variable
 
-      this.setState({ chartData: newChartData });
-      // console.log(this.state);
-      }
+      // this.setState({ chartData: newChartData });
+      // // console.log(this.state);
+      // }
 
       
     });
@@ -264,56 +246,56 @@ class App extends Component {
       const testData = document.getElementById("406");
       testData.innerText = testData.innerHTML + data;
       
-      // parse incoming data
-      const message = JSON.parse(data);
-      // console.log(message.COUNT)
+      // // parse incoming data
+      // const message = JSON.parse(data);
+      // // console.log(message.COUNT)
       
-      // store the current state array in a variable
-      const currDataSets = this.state.chartData.datasets;
+      // // store the current state array in a variable
+      // const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
-      const updatedDataSets = [...currDataSets];
+      // // create a new data variable, spread current array into new array
+      // const updatedDataSets = [...currDataSets];
 
-      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
-        && message.COUNT >= updatedDataSets[2].data[updatedDataSets[2].data.length -1]) {
-          updatedDataSets[2].data.pop()
-          this.state.chartData.labels.pop()
+      // if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+      //   && message.COUNT >= updatedDataSets[2].data[updatedDataSets[2].data.length -1]) {
+      //     updatedDataSets[2].data.pop()
+      //     this.state.chartData.labels.pop()
 
-          updatedDataSets[2].data.push(message.COUNT);
-          console.log(updatedDataSets[2].data)
-          const newChartData = {
-            ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
-        };
-        // console.log(newChartData);
-        // set the state with the updated variable
+      //     updatedDataSets[2].data.push(message.COUNT);
+      //     console.log(updatedDataSets[2].data)
+      //     const newChartData = {
+      //       ...this.state.chartData, // object
+      //       datasets: [...updatedDataSets], // array
+      //       // labels: this.state.chartData.labels.concat(
+      //       //   // new Date().toLocaleTimeString()
+      //       //   message["WINDOW_START"]
+      //       // ),
+      //   };
+      //   // console.log(newChartData);
+      //   // set the state with the updated variable
   
-        this.setState({ chartData: newChartData });
-        // console.log(this.state);
-      } else {
-        // push incoming data to new data variable
-      updatedDataSets[2].data.push(message.COUNT);
-      // console.log(currDataSets);
+      //   this.setState({ chartData: newChartData });
+      //   // console.log(this.state);
+      // } else {
+      //   // push incoming data to new data variable
+      // updatedDataSets[2].data.push(message.COUNT);
+      // // console.log(currDataSets);
 
-      // variable for storing updated version of state
-      const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
-      };
-      // console.log(newChartData);
-      // set the state with the updated variable
+      // // variable for storing updated version of state
+      // const newChartData = {
+      //   ...this.state.chartData, // object
+      //   datasets: [...updatedDataSets], // array
+      //   // labels: this.state.chartData.labels.concat(
+      //   //   // new Date().toLocaleTimeString()
+      //   //   message["WINDOW_START"]
+      //   // ),
+      // };
+      // // console.log(newChartData);
+      // // set the state with the updated variable
 
-      this.setState({ chartData: newChartData });
-      // console.log(this.state);
-      }
+      // this.setState({ chartData: newChartData });
+      // // console.log(this.state);
+      // }
     });
 
     // Connects 407 Error Consumer
@@ -322,56 +304,56 @@ class App extends Component {
       testData.innerText = testData.innerHTML + data;
       
       
-      // parse incoming data
-      const message = JSON.parse(data);
-      // console.log(message.COUNT)
+      // // parse incoming data
+      // const message = JSON.parse(data);
+      // // console.log(message.COUNT)
       
-      // store the current state array in a variable
-      const currDataSets = this.state.chartData.datasets;
+      // // store the current state array in a variable
+      // const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
-      const updatedDataSets = [...currDataSets];
+      // // create a new data variable, spread current array into new array
+      // const updatedDataSets = [...currDataSets];
 
-      if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
-        && message.COUNT >= updatedDataSets[3].data[updatedDataSets[3].data.length -1]) {
-          updatedDataSets[3].data.pop()
-          this.state.chartData.labels.pop()
+      // if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+      //   && message.COUNT >= updatedDataSets[3].data[updatedDataSets[3].data.length -1]) {
+      //     updatedDataSets[3].data.pop()
+      //     this.state.chartData.labels.pop()
 
-          updatedDataSets[3].data.push(message.COUNT);
-          console.log(updatedDataSets[3].data)
-          const newChartData = {
-            ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
-        };
-        // console.log(newChartData);
-        // set the state with the updated variable
+      //     updatedDataSets[3].data.push(message.COUNT);
+      //     console.log(updatedDataSets[3].data)
+      //     const newChartData = {
+      //       ...this.state.chartData, // object
+      //       datasets: [...updatedDataSets], // array
+      //       // labels: this.state.chartData.labels.concat(
+      //       //   // new Date().toLocaleTimeString()
+      //       //   message["WINDOW_START"]
+      //       // ),
+      //   };
+      //   // console.log(newChartData);
+      //   // set the state with the updated variable
   
-        this.setState({ chartData: newChartData });
-        // console.log(this.state);
-      } else {
-        // push incoming data to new data variable
-      updatedDataSets[3].data.push(message.COUNT);
-      // console.log(currDataSets);
+      //   this.setState({ chartData: newChartData });
+      //   // console.log(this.state);
+      // } else {
+      //   // push incoming data to new data variable
+      // updatedDataSets[3].data.push(message.COUNT);
+      // // console.log(currDataSets);
 
-      // variable for storing updated version of state
-      const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
-      };
-      // console.log(newChartData);
-      // set the state with the updated variable
+      // // variable for storing updated version of state
+      // const newChartData = {
+      //   ...this.state.chartData, // object
+      //   datasets: [...updatedDataSets], // array
+      //   // labels: this.state.chartData.labels.concat(
+      //   //   // new Date().toLocaleTimeString()
+      //   //   message["WINDOW_START"]
+      //   // ),
+      // };
+      // // console.log(newChartData);
+      // // set the state with the updated variable
 
-      this.setState({ chartData: newChartData });
-      // console.log(this.state);
-      }
+      // this.setState({ chartData: newChartData });
+      // // console.log(this.state);
+      // }
     });
   }
 
