@@ -8,10 +8,11 @@ const Nav = (props) => {
       <div>
         <img src={Logo} width="130" />
       </div>
+      
       <div>&nbsp;</div>
-      <div>Account</div>
-      <div>Alert</div>
-      <div>More</div>
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
+      <div>&nbsp;</div>
     </nav>
   );
 };
