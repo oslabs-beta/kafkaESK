@@ -1,6 +1,6 @@
 #mainchart {
   display: grid;
-  grid-template-columns: 65% 2% 30%;
+  grid-template-columns: 98% 0% 0%;
   grid-template-rows: 1fr;
   gap: 10px 10px;
   grid-template-areas: ". . . ";
@@ -19,7 +19,7 @@
   border-radius: 2px;
   color: red;
   padding: 15px 15px 15px 15px;
-  height: 300px;
+
   background-color: #ffffff;
   overflow: scroll;
 }
