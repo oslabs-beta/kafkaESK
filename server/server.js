@@ -44,53 +44,53 @@ io.on('connection', (socket) => {
 
   // 404 consumer
   const consumer_404 = kafka.consumer({
-    groupId: 'test-group1',
+    groupId: 'group404',
     fromBeginning: true,
   });
   consumer_404.connect();
-  consumer_404.subscribe({ topic: '404_ERRORS' });
+  consumer_404.subscribe({ topic: '404_ERRORS_PER_MIN' });
   consumer_404.run({
     eachMessage: async ({ topic, partition, message }) => {
-      socket.broadcast.emit('404_ERRORS', message.value.toString());
+      socket.broadcast.emit('404_ERRORS_PER_MIN', message.value.toString());
     },
   });
 
   // 405 consumer
   const consumer_405 = kafka.consumer({
-    groupId: 'test-group2',
+    groupId: 'group405',
     fromBeginning: true,
   });
   consumer_405.connect();
-  consumer_405.subscribe({ topic: '405_ERRORS' });
+  consumer_405.subscribe({ topic: '405_ERRORS_PER_MIN' });
   consumer_405.run({
     eachMessage: async ({ topic, partition, message }) => {
-      socket.broadcast.emit('405_ERRORS', message.value.toString());
+      socket.broadcast.emit('405_ERRORS_PER_MIN', message.value.toString());
     },
   });
 
   // 406 consumer
   const consumer_406 = kafka.consumer({
-    groupId: 'test-group3',
+    groupId: 'group406',
     fromBeginning: true,
   });
   consumer_406.connect();
-  consumer_406.subscribe({ topic: '406_ERRORS' });
+  consumer_406.subscribe({ topic: '406_ERRORS_PER_MIN' });
   consumer_406.run({
     eachMessage: async ({ topic, partition, message }) => {
-      socket.broadcast.emit('406_ERRORS', message.value.toString());
+      socket.broadcast.emit('406_ERRORS_PER_MIN', message.value.toString());
     },
   });
 
-  // 407
+  // 407 consumer
   const consumer_407 = kafka.consumer({
-    groupId: 'test-group4',
+    groupId: 'group407',
     fromBeginning: true,
   });
   consumer_407.connect();
-  consumer_407.subscribe({ topic: '407_ERRORS' });
+  consumer_407.subscribe({ topic: '407_ERRORS_PER_MIN' });
   consumer_407.run({
     eachMessage: async ({ topic, partition, message }) => {
-      socket.broadcast.emit('407_ERRORS', message.value.toString());
+      socket.broadcast.emit('407_ERRORS_PER_MIN', message.value.toString());
     },
   });
 });

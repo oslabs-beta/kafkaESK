@@ -1,0 +1,147 @@
+// $font-stack: "Questrial", sans-serif;
+// $primary-color: #333;
+$primary-color-background: #16171b;
+
+#airtablediv {
+  display: grid;
+  grid-template-columns: 49% 1% 49%;
+  grid-template-rows: 1fr;
+  // gap: 5px 5px;
+  grid-template-areas: ". . . ";
+  width: 93%;
+  color: #ffffff;
+  opacity: 80%;
+  border-radius: 2px;
+  margin-left: 1%;
+  margin-bottom: 20px;
+}
+#airtableform {
+  justify-content: center;
+  border-radius: 2px;
+  color: red;
+  padding: 15px 15px 15px 15px;
+  height: 300px;
+  background-color: #202125;
+  opacity: 80%;
+}
+#filler {
+  justify-content: center;
+  border-radius: 2px;
+  color: red;
+  padding: 15px 15px 15px 15px;
+  height: 300px;
+  background-color: #202125;
+  opacity: 80%;
+}
+
+#myList {
+  width: 30%;
+  background-color: $primary-color-background;
+}
+.select {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.select select {
+  font-family: "Arial";
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  border: 0px solid #000000;
+  border-radius: 5px;
+  background: #16171b;
+  color: #d6d6d6;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.select select::-ms-expand {
+  display: none;
+}
+.select select:hover,
+.select select:focus {
+  color: #fafafa;
+  background: #3a3a3a;
+}
+.select select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.select_arrow {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0px 5px;
+  border-color: #d6d6d6 transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+  border-top-color: #ffffff;
+}
+.select select:disabled ~ .select_arrow {
+  border-top-color: #cccccc;
+}
+
+input {
+  width: 99%;
+  min-height: 50px;
+  background-color: #ffffff;
+}
+.submit-airtable {
+  background: #00af78;
+  background-image: -webkit-linear-gradient(top, #00af78, #039366);
+  background-image: -moz-linear-gradient(top, #00af78, #039366);
+  background-image: -ms-linear-gradient(top, #00af78, #039366);
+  background-image: -o-linear-gradient(top, #00af78, #039366);
+  background-image: -webkit-gradient(to bottom, #00af78, #039366);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-family: Helvetica;
+  width: 25%;
+  font-size: 16px;
+  font-weight: bold;
+  border: solid #0a966a 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit-airtable:hover {
+  border: solid #0a966a 1px;
+  background: #039366;
+  background-image: -webkit-linear-gradient(top, #039366, #00af78);
+  background-image: -moz-linear-gradient(top, #039366, #00af78);
+  background-image: -ms-linear-gradient(top, #039366, #00af78);
+  background-image: -o-linear-gradient(top, #039366, #00af78);
+  background-image: -webkit-gradient(to bottom, #039366, #00af78);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+h2 {
+  font-size: 24px;
+  color: #ffffff;
+}
+#form-header {
+  display: grid;
+  grid-template-columns: 8% 90%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
+}
+#airtable-logo {
+  width: 40px;
+  padding-top: 10px;
+}
