@@ -1,7 +1,7 @@
-// $font-stack: "Questrial", sans-serif;
-// $primary-color: #333;
 $primary-color-background: #16171b;
 
+$primary-color-background: #16171b;
+//hello
 #airtablediv {
   display: grid;
   grid-template-columns: 49% 1% 49%;
@@ -20,7 +20,7 @@ $primary-color-background: #16171b;
   border-radius: 2px;
   color: red;
   padding: 15px 15px 15px 15px;
-  height: 300px;
+  min-height: 300px;
   background-color: #202125;
   opacity: 80%;
 }
@@ -29,7 +29,7 @@ $primary-color-background: #16171b;
   border-radius: 2px;
   color: red;
   padding: 15px 15px 15px 15px;
-  height: 300px;
+  min-height: 300px;
   background-color: #202125;
   opacity: 80%;
 }
@@ -88,9 +88,14 @@ $primary-color-background: #16171b;
   border-top-color: #cccccc;
 }
 
-input {
+#bugdescription {
   width: 99%;
   min-height: 50px;
+  background-color: #ffffff;
+}
+#bugName {
+  width: 99%;
+  min-height: 20px;
   background-color: #ffffff;
 }
 .submit-airtable {
@@ -144,4 +149,10 @@ h2 {
 #airtable-logo {
   width: 40px;
   padding-top: 10px;
+}
+
+label {
+  color: #ffffff !important;
+  font-size: 14px;
+  line-height: 18px;
 }

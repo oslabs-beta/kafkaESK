@@ -35,7 +35,7 @@ class DoughnutChart extends React.Component {
       //   console.log("these are updated datasets", updatedDataSets);
       //   updatedDataSets[0].data.splice(0, 1, message.ERROR_404_COUNT);
       //   console.log("spliced array:", updatedDataSets.data);
-      updatedArray[0] = message.ERROR_404_COUNT;
+      updatedArray[0] = message.COUNT;
       console.log('doughtnut data num:', updatedArray[0]);
 
       // set the state with the updated variable
@@ -53,7 +53,7 @@ class DoughnutChart extends React.Component {
       const updatedDataSets = [...currDataSets];
 
       // push incoming data to new data variable
-      updatedDataSets[0].data.splice(1, 1, message.ERROR_405_COUNT);
+      updatedDataSets[0].data.splice(1, 1, message.COUNT);
 
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
@@ -69,7 +69,7 @@ class DoughnutChart extends React.Component {
       const updatedDataSets = [...currDataSets];
 
       // push incoming data to new data variable
-      updatedDataSets[0].data.splice(2, 1, message.ERROR_406_COUNT);
+      updatedDataSets[0].data.splice(2, 1, message.COUNT);
 
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
@@ -85,7 +85,7 @@ class DoughnutChart extends React.Component {
       const updatedDataSets = [...currDataSets];
 
       // push incoming data to new data variable
-      updatedDataSets[0].data.splice(3, 1, message.ERROR_407_COUNT);
+      updatedDataSets[0].data.splice(3, 1, message.COUNT);
 
       this.setState({ datasets: updatedDataSets });
     });
