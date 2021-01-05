@@ -22,8 +22,9 @@ class AirtableIntegration extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  //updates state with form input values
+
   handleChange(event) {
+    //updates state based on form input values
     this.setState({ [event.target.name]: event.target.value });
   }
 
