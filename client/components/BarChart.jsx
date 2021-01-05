@@ -104,7 +104,6 @@ class BarChart extends React.Component {
       // push incoming data to new data variable
       updatedDataSets[3].data = [message.COUNT];
 
-
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
     });
