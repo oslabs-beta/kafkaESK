@@ -1,22 +1,23 @@
-import React, { Component } from "react";
-import "../styles/airtable.scss";
-import airtablelogo from "../images/airtable-logo.png";
+import React, { Component } from 'react';
+import '../styles/airtable.scss';
+import airtablelogo from '../images/airtable-logo.png';
+import DataGenerator from './DataGenerator.jsx';
 //require and create a new instance of airtable connecting to base with an api key
-const Airtable = require("airtable");
-const base = new Airtable({ apiKey: "keyrj2qx48S8OCScO" }).base(
-  "appSgoXde9kcXPb0Q"
+const Airtable = require('airtable');
+const base = new Airtable({ apiKey: 'keyrj2qx48S8OCScO' }).base(
+  'appSgoXde9kcXPb0Q'
 );
 
 class AirtableIntegration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Name: "",
-      Priority: "",
-      Status: "Assigned",
-      Description: "",
-      "Error Number": "",
-      "Assigned to": "",
+      Name: '',
+      Priority: '',
+      Status: 'Assigned',
+      Description: '',
+      'Error Number': '',
+      'Assigned to': '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +30,7 @@ class AirtableIntegration extends Component {
   handleSubmit(event) {
     event.preventDefault();
     //on form submit creates a new record in airtable
-    base("Bugs and issues").create(
+    base('Bugs and issues').create(
       [
         {
           fields: this.state,
@@ -45,6 +46,14 @@ class AirtableIntegration extends Component {
         });
       }
     );
+    this.setState({
+      Name: '',
+      Priority: '',
+      Status: 'Assigned',
+      Description: '',
+      'Error Number': '',
+      'Assigned to': '',
+    });
   }
   render() {
     return (
@@ -60,7 +69,7 @@ class AirtableIntegration extends Component {
               <select
                 id="assigned"
                 name="Assigned to"
-                value={this.state["Assigned to"]}
+                value={this.state['Assigned to']}
                 onChange={this.handleChange}
                 required
               >
@@ -77,7 +86,7 @@ class AirtableIntegration extends Component {
               <select
                 id="errornum"
                 name="Error Number"
-                value={this.state["Error Number"]}
+                value={this.state['Error Number']}
                 onChange={this.handleChange}
                 required
               >
@@ -135,7 +144,9 @@ class AirtableIntegration extends Component {
           </form>
         </div>
         <div>&nbsp;</div>
-        <div id="filler">&nbsp;</div>
+        <div id="filler">
+          <DataGenerator />
+        </div>
       </div>
     );
   }

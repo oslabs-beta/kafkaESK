@@ -1,0 +1,76 @@
+h2 {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+#command {
+  width: 99%;
+  min-height: 100px;
+  background-color: #ffffff;
+  overflow: scroll;
+}
+
+// gradient styling for submit button
+#submit-command {
+  margin-top: 15px;
+  background: #00af78;
+  background-image: -webkit-linear-gradient(top, #00af78, #039366);
+  background-image: -moz-linear-gradient(top, #00af78, #039366);
+  background-image: -ms-linear-gradient(top, #00af78, #039366);
+  background-image: -o-linear-gradient(top, #00af78, #039366);
+  background-image: -webkit-gradient(to bottom, #00af78, #039366);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-family: Helvetica;
+  width: 25%;
+  font-size: 16px;
+  font-weight: bold;
+  border: solid #0a966a 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+#submit-command:hover {
+  border: solid #0a966a 1px;
+  background: #039366;
+  background-image: -webkit-linear-gradient(top, #039366, #00af78);
+  background-image: -moz-linear-gradient(top, #039366, #00af78);
+  background-image: -ms-linear-gradient(top, #039366, #00af78);
+  background-image: -o-linear-gradient(top, #039366, #00af78);
+  background-image: -webkit-gradient(to bottom, #039366, #00af78);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+#end-command {
+  margin-top: 15px;
+  background: #af1a00;
+  background-image: -webkit-linear-gradient(top, #af1a00, #930d03);
+  background-image: -moz-linear-gradient(top, #af1a00, #930d03);
+  background-image: -ms-linear-gradient(top, #af1a00, #930d03);
+  background-image: -o-linear-gradient(top, #af1a00, #930d03);
+  background-image: -webkit-gradient(to bottom, #af1a00, #930d03);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-family: Helvetica;
+  width: 25%;
+  font-size: 16px;
+  font-weight: bold;
+  border: solid #960a0a 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 10px;
+}
