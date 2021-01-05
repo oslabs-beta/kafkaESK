@@ -13,10 +13,10 @@ class DoughnutChart extends Component {
           label: 'Errors',
            // additional styling for chart.js elements 
           backgroundColor: ['#BDD358', '#FFFFFF', '#1BB075', '#999799'],
-          borderColor: 'transparent',          
-          data: [0, 0, 0, 0],
-         },
-        ]
+          borderColor: 'transparent',
+          data: [25, 25, 25, 25],
+        },
+      ],
     };
   }
 

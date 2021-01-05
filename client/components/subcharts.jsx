@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DoughnutChart from './DoughnutChart.jsx';
 import BarChart from './BarChart.jsx';
-import RadarChart from './RadarChart.jsx';
+import PolarChart from './PolarChart.jsx';
 import '../styles/subcharts.scss';
 
 const SubCharts = (props) => {
@@ -16,7 +16,7 @@ const SubCharts = (props) => {
       </div>
       <div>&nbsp;</div>
       <div id="chart3">
-        <RadarChart />
+        <PolarChart />
       </div>
     </div>
   );
