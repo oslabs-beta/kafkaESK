@@ -1,9 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { Component } from "react";
 import { Radar } from 'react-chartjs-2';
 import '../styles/mainchart.scss';
 
-class RadarChart extends React.Component {
+class RadarChart extends Component {
   constructor(props) {
     super(props);
     this.state = {

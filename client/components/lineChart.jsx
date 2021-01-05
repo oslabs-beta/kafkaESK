@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import '../styles/mainchart.scss';
+import '../styles/lineChart.scss';
 
 class LineChart extends Component {
   constructor(props) {
@@ -18,12 +18,11 @@ class LineChart extends Component {
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(225,0,0,0.4)',
-            borderColor: 'rgb(189,211,88)', // The main line color
+            borderColor: 'rgb(189,211,88)', 
             borderCapStyle: 'square',
-            borderDash: [], // try [5, 15] for instance
+            borderDash: [], 
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            // pointBorderColor: "black",
             pointBackgroundColor: 'white',
             pointBorderWidth: 1,
             pointHoverRadius: 8,
@@ -32,7 +31,6 @@ class LineChart extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            // notice the gap in the data and the spanGaps: true
             data: [],
             spanGaps: true,
           },
@@ -40,13 +38,11 @@ class LineChart extends Component {
             label: '405',
             fill: false,
             lineTension: 0.1,
-            // backgroundColor: "rgba(255, 206, 86, 0.6)",
             borderColor: 'rgb(255,255,255)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            // pointBorderColor: "white",
             pointBackgroundColor: 'white',
             pointBorderWidth: 1,
             pointHoverRadius: 8,
@@ -55,7 +51,6 @@ class LineChart extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            // notice the gap in the data and the spanGaps: false
             data: [],
             spanGaps: false,
           },
@@ -63,13 +58,11 @@ class LineChart extends Component {
             label: '406',
             fill: false,
             lineTension: 0.1,
-            // backgroundColor: "rgba(54, 162, 235, 0.6)",
             borderColor: 'rgb(27,176,117)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            // pointBorderColor: "white",
             pointBackgroundColor: 'white',
             pointBorderWidth: 1,
             pointHoverRadius: 8,
@@ -78,7 +71,6 @@ class LineChart extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            // notice the gap in the data and the spanGaps: false
             data: [],
             spanGaps: false,
           },
@@ -86,13 +78,11 @@ class LineChart extends Component {
             label: '407',
             fill: false,
             lineTension: 0.1,
-            // backgroundColor: "rgba(255,99,132,0.6)",
             borderColor: 'rgb(153,151,153)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            // pointBorderColor: "white",
             pointBackgroundColor: 'white',
             pointBorderWidth: 1,
             pointHoverRadius: 8,
@@ -101,7 +91,6 @@ class LineChart extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            // notice the gap in the data and the spanGaps: false
             data: [],
             spanGaps: false,
           },
@@ -117,170 +106,159 @@ class LineChart extends Component {
     socket.on("404_ERRORS_PER_MIN", data => {
       // parse incoming data
       const message = JSON.parse(data);
-      // console.log(message.COUNT)
       
-      // store the current state array in a variable
+      // store the current datasets array in a variable
       const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
+      // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
+      // the time stamp ("WINDOW_START") of the incoming message is already included in the chartData labels,
       if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        // and the incoming COUNT is larger or equal to the last element in the data array,
         && message.COUNT >= updatedDataSets[0].data[updatedDataSets[0].data.length -1]) {
+          // also if the ticks on the x axis (labels) are more than 10, remove the first element(time) in the labels array
           if (this.state.chartData.labels.length > 10) {
             this.state.chartData.labels.shift()
           }
+          // pop the last element(count) off the data array 
           updatedDataSets[0].data.pop()
+          // pop the last element(time) off the labels array
           this.state.chartData.labels.pop()
-
+          // push the latest count from the incoming message
           updatedDataSets[0].data.push(message.COUNT);
-          console.log(updatedDataSets[0].data)
+
+          // variable for storing updated version of state 
           const newChartData = {
-            ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
+            ...this.state.chartData, 
+            datasets: [...updatedDataSets], 
             labels: this.state.chartData.labels.concat(
-              // new Date().toLocaleTimeString()
+              // concat the new time from WINDOW_START in the incoming message
               message["WINDOW_START"]
             ),
         };
-        // console.log(newChartData);
-        // set the state with the updated variable
-  
+       
+        // set the state of chartData to updated version 
         this.setState({ chartData: newChartData });
-        // console.log(this.state);
+        
+        // else the window has ended and a new window starts giving us a new time stamp(a new WINDOW_START time)
       } else {
+        // check to see if the labels are currently greater than 10
         if (this.state.chartData.labels.length > 10) {
+          // if true, shift the earliest label(time)
           this.state.chartData.labels.shift()
         }
-        // push incoming data to new data variable
+        
+      // push incoming count to data array at index 0
       updatedDataSets[0].data.push(message.COUNT);
-      // console.log(currDataSets);
+      
 
       // variable for storing updated version of state
       const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
+        ...this.state.chartData, 
+        datasets: [...updatedDataSets], 
         labels: this.state.chartData.labels.concat(
           // new Date().toLocaleTimeString()
           message["WINDOW_START"]
         ),
       };
-      // console.log(newChartData);
+      
       // set the state with the updated variable
-
       this.setState({ chartData: newChartData });
-      // console.log(this.state);
       }
-
     });
 
     // Connects 405 Error Consumer
     socket.on("405_ERRORS_PER_MIN", data => {
       // parse incoming data
       const message = JSON.parse(data);
-      // console.log(message.COUNT)
       
-      // store the current state array in a variable
+      // store the current datasets array in a variable
       const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
+      // create a new data variable, spread currDataSets array into new array
       const updatedDataSets = [...currDataSets];
 
+      // the time stamp ("WINDOW_START") of the incoming message is already included in the chartData labels,
       if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        // and the incoming COUNT is larger or equal to the last element in the data array,
         && message.COUNT >= updatedDataSets[1].data[updatedDataSets[1].data.length -1]) {
+          // pop the last element(count) off the data array
           updatedDataSets[1].data.pop()
+          // pop the last element(time) off the labels array
           this.state.chartData.labels.pop()
-
+          // push the latest count from the incoming message
           updatedDataSets[1].data.push(message.COUNT);
-          console.log(updatedDataSets[1].data)
+          
+          // variable for storing updated version of state
           const newChartData = {
-            ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
+            ...this.state.chartData, 
+            datasets: [...updatedDataSets], 
         };
-        // console.log(newChartData);
+       
         // set the state with the updated variable
-  
         this.setState({ chartData: newChartData });
-        // console.log(this.state);
+        
       } else {
-        // push incoming data to new data variable
+        
+      // push incoming count to data array at index 1 
       updatedDataSets[1].data.push(message.COUNT);
-      // console.log(currDataSets);
 
       // variable for storing updated version of state
       const newChartData = {
         ...this.state.chartData, // object
         datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
       };
-      // console.log(newChartData);
-      // set the state with the updated variable
-
-      this.setState({ chartData: newChartData });
-      // console.log(this.state);
-      }
-
       
+      // set the state with the updated variable
+      this.setState({ chartData: newChartData });
+      } 
     });
 
     // Connects 406 Error Consumer
     socket.on("406_ERRORS_PER_MIN", data => {
       // parse incoming data
       const message = JSON.parse(data);
-      // console.log(message.COUNT)
       
-      // store the current state array in a variable
+      // store the current datasets array in a variable
       const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
+      // create a new data variable, spread currDataSets array into new array
       const updatedDataSets = [...currDataSets];
-
+      
+      // the time stamp ("WINDOW_START") of the incoming message is already included in the chartData labels,
       if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        // and the incoming COUNT is larger or equal to the last element in the data array,
         && message.COUNT >= updatedDataSets[2].data[updatedDataSets[2].data.length -1]) {
+          // pop the last element(count) off the data array 
           updatedDataSets[2].data.pop()
+          // pop the last element(time) off the labels array
           this.state.chartData.labels.pop()
-
+          // push the latest count from the incoming message
           updatedDataSets[2].data.push(message.COUNT);
           console.log(updatedDataSets[2].data)
           const newChartData = {
             ...this.state.chartData, // object
-            datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
+            datasets: [...updatedDataSets],
         };
-        // console.log(newChartData);
+      
         // set the state with the updated variable
-  
         this.setState({ chartData: newChartData });
-        // console.log(this.state);
+      
+        // else the window has ended and a new window starts giving us a new time stamp(a new WINDOW_START time)
       } else {
-        // push incoming data to new data variable
+        
+      // push incoming count to data array at index 2
       updatedDataSets[2].data.push(message.COUNT);
-      // console.log(currDataSets);
-
+      
       // variable for storing updated version of state
       const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
+        ...this.state.chartData, 
+        datasets: [...updatedDataSets], 
       };
-      // console.log(newChartData);
+      
       // set the state with the updated variable
-
       this.setState({ chartData: newChartData });
-      // console.log(this.state);
       }
     });
 
@@ -288,53 +266,46 @@ class LineChart extends Component {
     socket.on("407_ERRORS_PER_MIN", data => {
       // parse incoming data
       const message = JSON.parse(data);
-      // console.log(message.COUNT)
       
-      // store the current state array in a variable
+      // store the current datasets array in a variable
       const currDataSets = this.state.chartData.datasets;
 
-      // create a new data variable, spread current array into new array
+      // create a new data variable, spread currDataSets array into new array
       const updatedDataSets = [...currDataSets];
-
+      
+      // the time stamp ("WINDOW_START") of the incoming message is already included in the chartData labels,
       if (this.state.chartData.labels.includes(message["WINDOW_START"]) 
+        // and the incoming COUNT is larger or equal to the last element in the data array,
         && message.COUNT >= updatedDataSets[3].data[updatedDataSets[3].data.length -1]) {
+          // pop the last element(count) off the data array
           updatedDataSets[3].data.pop()
+          // pop the last element(time) off the labels array
           this.state.chartData.labels.pop()
-
+          // push the latest count from the incoming message
           updatedDataSets[3].data.push(message.COUNT);
-          console.log(updatedDataSets[3].data)
+      
           const newChartData = {
             ...this.state.chartData, // object
             datasets: [...updatedDataSets], // array
-            // labels: this.state.chartData.labels.concat(
-            //   // new Date().toLocaleTimeString()
-            //   message["WINDOW_START"]
-            // ),
         };
-        // console.log(newChartData);
+       
         // set the state with the updated variable
-  
         this.setState({ chartData: newChartData });
-        // console.log(this.state);
+      
+      // else the window has ended and a new window starts giving us a new time stamp(a new WINDOW_START time)
       } else {
-        // push incoming data to new data variable
+        
+      // push incoming count to data array at index 3
       updatedDataSets[3].data.push(message.COUNT);
-      // console.log(currDataSets);
-
+      
       // variable for storing updated version of state
       const newChartData = {
-        ...this.state.chartData, // object
-        datasets: [...updatedDataSets], // array
-        // labels: this.state.chartData.labels.concat(
-        //   // new Date().toLocaleTimeString()
-        //   message["WINDOW_START"]
-        // ),
+        ...this.state.chartData, 
+        datasets: [...updatedDataSets], 
       };
-      // console.log(newChartData);
+      
       // set the state with the updated variable
-
       this.setState({ chartData: newChartData });
-      // console.log(this.state);
       }
     });
   }
@@ -346,18 +317,6 @@ class LineChart extends Component {
           <Line data={this.state.chartData} />
         </div>
         <div>&nbsp;</div>
-        {/* <div id="log"> */}
-          {/* <div id="404"></div>
-          <hr></hr>
-          <br></br>
-          <div id="405"></div>
-          <hr></hr>
-          <br></br>
-          <div id="406"></div>
-          <hr></hr>
-          <br></br>
-          <div id="407"></div> */}
-        {/* </div> */}
       </div>
     );
   }

@@ -1,7 +1,6 @@
 $primary-color-background: #16171b;
-
 $primary-color-background: #16171b;
-//hello
+//styling for outer div element 
 #airtablediv {
   display: grid;
   grid-template-columns: 49% 1% 49%;
@@ -15,6 +14,7 @@ $primary-color-background: #16171b;
   margin-left: 1%;
   margin-bottom: 20px;
 }
+// column 1 styling 
 #airtableform {
   justify-content: center;
   border-radius: 2px;
@@ -24,6 +24,7 @@ $primary-color-background: #16171b;
   background-color: #202125;
   opacity: 80%;
 }
+// column 2 styling 
 #filler {
   justify-content: center;
   border-radius: 2px;
@@ -33,7 +34,7 @@ $primary-color-background: #16171b;
   background-color: #202125;
   opacity: 80%;
 }
-
+// styling for drop down menu 
 #myList {
   width: 30%;
   background-color: $primary-color-background;
@@ -62,6 +63,7 @@ $primary-color-background: #16171b;
 .select select::-ms-expand {
   display: none;
 }
+// assign rollover styling for drop down elements 
 .select select:hover,
 .select select:focus {
   color: #fafafa;
@@ -87,7 +89,7 @@ $primary-color-background: #16171b;
 .select select:disabled ~ .select_arrow {
   border-top-color: #cccccc;
 }
-
+// sizing and styling of input fields 
 #bugdescription {
   width: 99%;
   min-height: 50px;
@@ -98,6 +100,7 @@ $primary-color-background: #16171b;
   min-height: 20px;
   background-color: #ffffff;
 }
+// gradient styling for submit button 
 .submit-airtable {
   background: #00af78;
   background-image: -webkit-linear-gradient(top, #00af78, #039366);
@@ -135,10 +138,12 @@ $primary-color-background: #16171b;
   border-radius: 5px;
   text-decoration: none;
 }
+// header copy styling 
 h2 {
   font-size: 24px;
   color: #ffffff;
 }
+// grid layout for header copy and error table icon 
 #form-header {
   display: grid;
   grid-template-columns: 8% 90%;
@@ -150,7 +155,7 @@ h2 {
   width: 40px;
   padding-top: 10px;
 }
-
+// styling for input names 
 label {
   color: #ffffff !important;
   font-size: 14px;

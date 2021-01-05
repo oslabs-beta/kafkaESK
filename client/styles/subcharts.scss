@@ -1,8 +1,8 @@
+  // styling for outer grid containg all the secondary charts
 #subcharts {
   display: grid;
   grid-template-columns: 32.3% 1% 32.3% 1% 32.3%;
   grid-template-rows: 1fr;
-  // gap: 5px 5px;
   grid-template-areas: ". . . . . ";
   width: 93%;
   color: #ffffff;
@@ -10,6 +10,7 @@
   border-radius: 2px;
   margin-left: 1%;
 }
+// styling for div containing doughnut chart 
 #chart1 {
   justify-content: center;
   border-radius: 2px;
@@ -19,6 +20,7 @@
   background-color: #202125;
   opacity: 80%;
 }
+// styling for div containing bar graph  
 #chart2 {
   justify-content: center;
   border-radius: 2px;
@@ -28,6 +30,7 @@
   background-color: #202125;
   opacity: 80%;
 }
+// styling for div contaning radar chart
 #chart3 {
   justify-content: center;
   border-radius: 2px;
