@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../styles/airtable.scss";
 import airtablelogo from "../images/airtable-logo.png";
-
+//require and create a new instance of airtable connecting to base with an api key
 const Airtable = require("airtable");
 const base = new Airtable({ apiKey: "keyrj2qx48S8OCScO" }).base(
   "appSgoXde9kcXPb0Q"
@@ -21,14 +21,14 @@ class AirtableIntegration extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  //updates state with form input values
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.value);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-
+    //on form submit creates a new record in airtable
     base("Bugs and issues").create(
       [
         {

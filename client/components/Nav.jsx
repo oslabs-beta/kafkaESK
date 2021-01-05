@@ -8,7 +8,7 @@ const Nav = (props) => {
       <div>
         <img src={Logo} width="130" />
       </div>
-      
+      {/* Available navigation space for future iteration */}
       <div>&nbsp;</div>
       <div>&nbsp;</div>
       <div>&nbsp;</div>
@@ -16,5 +16,26 @@ const Nav = (props) => {
     </nav>
   );
 };
+
+
+// class Nav extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//       return (
+//   <nav>
+//   <div>
+//     <img src={Logo} width="130" />
+//   </div>
+//   {/* Available navigation space for future iteration */}
+//   <div>&nbsp;</div>
+//   <div>&nbsp;</div>
+//   <div>&nbsp;</div>
+//   <div>&nbsp;</div>
+// </nav>
+// );
+//   }
+// }
 
 export default Nav;

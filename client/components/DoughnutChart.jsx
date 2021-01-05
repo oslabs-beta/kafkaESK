@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { Component } from "react";
 import { Doughnut } from 'react-chartjs-2';
 import '../styles/mainchart.scss';
 
 // doughnut data array corresponds to single total for each label
-// need to determine how to continually update array with 4 aggregate values that correspond to labels
-class DoughnutChart extends React.Component {
+class DoughnutChart extends Component {
   constructor(props) {
     super(props);
+    // state holds labels for each error type and single data point for each current count(datasets:[{data:[]}]) 
     this.state = {
       labels: ['404', '405', '406', '407'],
-      datasets: [
-        {
+      datasets: [{
           label: 'Errors',
+           // additional styling for chart.js elements 
           backgroundColor: ['#BDD358', '#FFFFFF', '#1BB075', '#999799'],
           borderColor: 'transparent',
           data: [25, 25, 25, 25],
@@ -24,72 +24,53 @@ class DoughnutChart extends React.Component {
     const socket = io.connect('http://localhost:3333');
     // Connects 404 Error Consumer
     socket.on('404_ERRORS_PER_MIN', (data) => {
-      // // parse incoming data 
-      // const message = JSON.parse(data);
+      const message = JSON.parse(data);
+      // store the current state array in a variable
+      const dataArray = this.state.datasets[0].data;
+      // intialize new array and spread current array into new array
+      const updatedArray = [...dataArray];
+      // assign value of first element of new array to be COUNT attribute of message JSON object 
+      updatedArray[0] = message.COUNT;
 
-      // // store the current state array in a variable
-      // const dataArray = this.state.datasets[0].data;
+      
+      // are we correctly updating state in this WebSocket client?
 
-      // // create a new data variable, spread current array into new array
-      // const updatedArray = [...dataArray];
 
-      // // push incoming data to new data variable
-      // //   console.log("these are updated datasets", updatedDataSets);
-      // //   updatedDataSets[0].data.splice(0, 1, message.ERROR_404_COUNT);
-      // //   console.log("spliced array:", updatedDataSets.data);
-      // updatedArray[0] = message.COUNT;
-      // console.log('doughtnut data num:', updatedArray[0]);
-
-      // // set the state with the updated variable
-      // //   this.setState({ datasets: updatedDataSets });
-      // //   console.log("state", this.state);
     });
-
     // Connects 405 Error Consumer
     socket.on('405_ERRORS_PER_MIN', (data) => {
-      // const message = JSON.parse(data);
-      // const currDataSets = this.state.datasets;
-      // // console.log(currDataSets);
-
-      // // create a new data variable, spread current array into new array
-      // const updatedDataSets = [...currDataSets];
-
-      // // push incoming data to new data variable
-      // updatedDataSets[0].data.splice(1, 1, message.COUNT);
-
-      // // set the state with the updated variable
-      // this.setState({ datasets: updatedDataSets });
+      const message = JSON.parse(data);
+      const currDataSets = this.state.datasets;
+      // initialize variable for array version of state object 
+      const updatedDataSets = [...currDataSets];
+      // replace value of data array second element of array to be COUNT attribute of message JSON object 
+      updatedDataSets[0].data.splice(1, 1, message.COUNT);
+      // set the state with the updated variable
+      this.setState({ datasets: updatedDataSets });
     });
 
     // Connects 406 Error Consumer
     socket.on('406_ERRORS_PER_MIN', (data) => {
-      // const message = JSON.parse(data);
-      // const currDataSets = this.state.datasets;
-      // // console.log(currDataSets);
-
-      // // create a new data variable, spread current array into new array
-      // const updatedDataSets = [...currDataSets];
-
-      // // push incoming data to new data variable
-      // updatedDataSets[0].data.splice(2, 1, message.COUNT);
-
-      // // set the state with the updated variable
-      // this.setState({ datasets: updatedDataSets });
+      const message = JSON.parse(data);
+      const currDataSets = this.state.datasets;
+      // initialize variable for array version of state object 
+      const updatedDataSets = [...currDataSets];
+     // replace value of data array third element of array to be COUNT attribute of message JSON object 
+      updatedDataSets[0].data.splice(2, 1, message.COUNT);
+      // set the state with the updated variable
+      this.setState({ datasets: updatedDataSets });
     });
 
     // Connects 407 Error Consumer
     socket.on('407_ERRORS_PER_MIN', (data) => {
-      // const message = JSON.parse(data);
-      // const currDataSets = this.state.datasets;
-      // // console.log(currDataSets);
-
-      // // create a new data variable, spread current array into new array
-      // const updatedDataSets = [...currDataSets];
-
-      // // push incoming data to new data variable
-      // updatedDataSets[0].data.splice(3, 1, message.COUNT);
-
-      // this.setState({ datasets: updatedDataSets });
+      const message = JSON.parse(data);
+      const currDataSets = this.state.datasets;
+      // initialize variable for array version of state object 
+      const updatedDataSets = [...currDataSets];
+     // replace value of data array fourth element of array to be COUNT attribute of message JSON object 
+      updatedDataSets[0].data.splice(3, 1, message.COUNT);
+       // set the state with the updated variable
+      this.setState({ datasets: updatedDataSets });
     });
   }
 
