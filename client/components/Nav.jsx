@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/nav.scss";
-import Logo from "../images/kafkaesk-logo4.png";
+import Logo from "../images/kafkaesk-logo.png";
 
 const Nav = (props) => {
   return (
@@ -8,7 +8,7 @@ const Nav = (props) => {
       <div>
         <img src={Logo} width="130" />
       </div>
-      {/* Available navigation space for future iteration */}
+      {/* Placeholders for future iterations on Nav*/}{/* Available navigation space for future iteration */}
       <div>&nbsp;</div>
       <div>&nbsp;</div>
       <div>&nbsp;</div>
