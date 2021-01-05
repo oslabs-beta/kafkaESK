@@ -38,60 +38,53 @@ class BarChart extends React.Component {
     const socket = io.connect('http://localhost:3333');
     // Connects 404 Error Consumer
     socket.on('404_ERRORS_PER_MIN', (data) => {
+      // parse incoming data
       const message = JSON.parse(data);
+
       // store the current state array in a variable
       const currDataSets = this.state.datasets;
-      console.log(currDataSets);
 
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
-      // push incoming data to new data variable
+      // push incoming count to data array at index 0
       updatedDataSets[0].data = [message.COUNT];
-      console.log('Bar Chart', updatedDataSets[0].data);
 
-      // variable for storing updated version of state
-      // const newChartData = {
-      //   // eslint-disable-next-line react/no-access-state-in-setstate
-      //   ...this.state.datasets,
-      //   datasets: [...updatedDataSets],
-      // };
-
-      // console.log(newChartData);
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
-      //  console.log("state", this.state);
     });
 
     // Connects 405 Error Consumer
     socket.on('405_ERRORS_PER_MIN', (data) => {
+      // parse incoming data
       const message = JSON.parse(data);
-      // store the current state array in a variable
-      const currDataSets = this.state.datasets;
-      //  console.log(currDataSets);
 
+      // store the current state array in a variable
+      const currDataSets = this.state.datasets;      
+      
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
-      // push incoming data to new data variable
-      updatedDataSets[1].data = [message.COUNT];
-      //   console.log(updatedDataSets[0].data);
+      // push incoming count to data array at index 1
+      updatedDataSets[1].data = [message.COUNT]; 
+          
+      // set the state with the updated variable      
       this.setState({ datasets: updatedDataSets });
     });
 
     // Connects 406 Error Consumer
     socket.on('406_ERRORS_PER_MIN', (data) => {
+      // parse incoming data
       const message = JSON.parse(data);
+      
       // store the current state array in a variable
       const currDataSets = this.state.datasets;
-      //   console.log(currDataSets);
 
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
       // push incoming data to new data variable
       updatedDataSets[2].data = [message.COUNT];
-      //   console.log(updatedDataSets[0].data);
 
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
@@ -99,19 +92,19 @@ class BarChart extends React.Component {
 
     // Connects 407 Error Consumer
     socket.on('407_ERRORS_PER_MIN', (data) => {
+      // parse incoming data
       const message = JSON.parse(data);
+      
       // store the current state array in a variable
       const currDataSets = this.state.datasets;
-      // console.log(currDataSets);
 
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
       // push incoming data to new data variable
       updatedDataSets[3].data = [message.COUNT];
-      // console.log(updatedDataSets[0].data);
 
-      // console.log(newChartData);
+
       // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
     });
