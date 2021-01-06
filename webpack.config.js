@@ -8,6 +8,16 @@ module.exports = {
     filename: "index_bundle.js",
   },
   devtool: 'source-map',
+  devServer: {
+    host: "0.0.0.0",
+    port: 3333,
+    contentBase: path.resolve(__dirname, "dist"),
+    publicPath: "/",
+    proxy: {
+      target: "http://localhost:8080",
+      secure: false,
+    },
+  },
   module: {
     rules: [
       {
