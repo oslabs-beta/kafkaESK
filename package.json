@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "nodemon server/server.js & webpack-dev-server --open",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose",
     "create": "webpack"
   },
   "repository": {
@@ -25,11 +25,20 @@
     "url": "https://github.com/chelseaharris137/kafkaESK/issues"
   },
   "homepage": "https://github.com/chelseaharris137/kafkaESK#readme",
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "babel-jest"
+    }
+  },
   "dependencies": {
     "airtable": "^0.10.1",
     "chart.js": "^2.9.4",
     "cors": "^2.8.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "enzyme-to-json": "^3.6.1",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
     "kafkajs": "^1.15.0",
     "kafkajs-snappy": "^1.1.0",
     "morgan": "^1.10.0",
@@ -43,6 +52,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
