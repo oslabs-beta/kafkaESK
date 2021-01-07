@@ -60,15 +60,15 @@ class BarChart extends React.Component {
       const message = JSON.parse(data);
 
       // store the current state array in a variable
-      const currDataSets = this.state.datasets;      
-      
+      const currDataSets = this.state.datasets;
+
       // create a new data variable, spread current array into new array
       const updatedDataSets = [...currDataSets];
 
       // push incoming count to data array at index 1
-      updatedDataSets[1].data = [message.COUNT]; 
-          
-      // set the state with the updated variable      
+      updatedDataSets[1].data = [message.COUNT];
+
+      // set the state with the updated variable
       this.setState({ datasets: updatedDataSets });
     });
 
@@ -76,7 +76,7 @@ class BarChart extends React.Component {
     socket.on('406_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current state array in a variable
       const currDataSets = this.state.datasets;
 
@@ -94,7 +94,7 @@ class BarChart extends React.Component {
     socket.on('407_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current state array in a variable
       const currDataSets = this.state.datasets;
 

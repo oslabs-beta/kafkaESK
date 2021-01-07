@@ -16,13 +16,11 @@ class DataGenerator extends Component {
   // updates the state of command string based on form input
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state);
   }
 
   // should send ksql command string to server to be run in terminal
   handleSubmit(event) {
     event.preventDefault();
-    console.log('button clicked');
   }
 
   render() {

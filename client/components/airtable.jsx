@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import '../styles/airtable.scss';
 import airtablelogo from '../images/airtable-logo.png';
 import DataGenerator from './DataGenerator.jsx';
-//require and create a new instance of airtable connecting to base with an api key
+// require and create a new instance of airtable connecting to base with an api key
 const Airtable = require('airtable');
+
 const base = new Airtable({ apiKey: 'keyrj2qx48S8OCScO' }).base(
-  'appSgoXde9kcXPb0Q'
+  'appSgoXde9kcXPb0Q',
 );
 
 class AirtableIntegration extends Component {
@@ -24,28 +25,28 @@ class AirtableIntegration extends Component {
   }
 
   handleChange(event) {
-    //updates state based on form input values
+    // updates state based on form input values
     this.setState({ [event.target.name]: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    //on form submit creates a new record in airtable
+    // on form submit creates a new record in airtable
     base('Bugs and issues').create(
       [
         {
           fields: this.state,
         },
       ],
-      function (err, records) {
+      (err, records) => {
         if (err) {
           console.error(err);
           return;
         }
-        records.forEach(function (record) {
+        records.forEach((record) => {
           console.log(record.getId());
         });
-      }
+      },
     );
     this.setState({
       Name: '',
@@ -56,6 +57,7 @@ class AirtableIntegration extends Component {
       'Assigned to': '',
     });
   }
+
   render() {
     return (
       <div id="airtablediv">
@@ -66,7 +68,7 @@ class AirtableIntegration extends Component {
           </div>
 
           <form onSubmit={this.handleSubmit} id="airtableform">
-            <div class="select">
+            <div className="select">
               <select
                 id="assigned"
                 name="Assigned to"
@@ -80,10 +82,10 @@ class AirtableIntegration extends Component {
                 <option>Ai Mi Bui</option>
                 <option>Spencer Flohr</option>
               </select>
-              <div class="select_arrow"></div>
+              <div className="select_arrow" />
             </div>
 
-            <div class="select">
+            <div className="select">
               <select
                 id="errornum"
                 name="Error Number"
@@ -97,10 +99,10 @@ class AirtableIntegration extends Component {
                 <option>406</option>
                 <option>407</option>
               </select>
-              <div class="select_arrow"></div>
+              <div className="select_arrow" />
             </div>
 
-            <div class="select">
+            <div className="select">
               <select
                 id="priority"
                 name="Priority"
@@ -114,9 +116,9 @@ class AirtableIntegration extends Component {
                 <option>Normal</option>
                 <option>Low</option>
               </select>
-              <div class="select_arrow"></div>
+              <div className="select_arrow" />
             </div>
-            <br></br>
+            <br />
             <label>Task Name</label>
             <input
               type="text"
@@ -126,8 +128,8 @@ class AirtableIntegration extends Component {
               onChange={this.handleChange}
               required
             />
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             <label>Description</label>
             <input
               type="text"
@@ -137,9 +139,9 @@ class AirtableIntegration extends Component {
               onChange={this.handleChange}
               required
             />
-            <br></br>
-            <br></br>
-            <button class="submit-airtable" name="submit" type="submit">
+            <br />
+            <br />
+            <button className="submit-airtable" name="submit" type="submit">
               Send to Airtable
             </button>
           </form>

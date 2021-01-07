@@ -10,54 +10,49 @@ configure({ adapter: new Adapter() });
 configure({ disableLifecycleMethods: true });
 
 describe('React unit tests', () => {
+  let wrapper;
 
-    let wrapper; 
-    
-    describe('LineChart', () => {
+  describe('LineChart', () => {
+    beforeAll(() => {
+      wrapper = shallow(<LineChart />);
+    });
 
-        beforeAll(() => {
-            wrapper = shallow(<LineChart/>);
-        });
+    it('Renders component within a  <div> tag', () => {
+      expect(wrapper.type()).toEqual('div');
+    });
 
-        it('Renders component within a  <div> tag', () => {
-            expect(wrapper.type()).toEqual('div'); 
-         })
+    it('Renders a canvas element for the line chart', () => {
+      expect(wrapper.find('canvas'));
+    });
+  });
 
-        it ('Renders a canvas element for the line chart', () => {
-            expect(wrapper.find('canvas')); 
-        }); 
-    }); 
+  describe('DoughnutChart', () => {
+    beforeAll(() => {
+      wrapper = shallow(<DoughnutChart />);
+    });
 
-    describe('DoughnutChart', () => {
+    it('Renders a canvas element for the doughnut chart', () => {
+      expect(wrapper.find('canvas'));
+    });
+  });
 
-        beforeAll(() => {
-            wrapper = shallow(<DoughnutChart/>);
-        });
+  describe('PolarChart', () => {
+    beforeAll(() => {
+      wrapper = shallow(<PolarChart />);
+    });
 
-        it ('Renders a canvas element for the doughnut chart', () => {
-            expect(wrapper.find('canvas')); 
-         })
-    }); 
+    it('Renders a canvas element for the polar chart', () => {
+      expect(wrapper.find('canvas'));
+    });
+  });
 
-    describe('PolarChart', () => {
+  describe('BarChart', () => {
+    beforeAll(() => {
+      wrapper = shallow(<BarChart />);
+    });
 
-        beforeAll(() => {
-            wrapper = shallow(<PolarChart/>);
-        });
-
-        it ('Renders a canvas element for the polar chart', () => {
-            expect(wrapper.find('canvas')); 
-        })
-    }); 
-
-    describe('BarChart', () => {
-
-        beforeAll(() => {
-            wrapper = shallow(<BarChart/>);
-        });
-
-        it ('Renders a canvas element for the line chart', () => {
-            expect(wrapper.find('canvas')); 
-        }); 
-    }); 
-}); 
+    it('Renders a canvas element for the line chart', () => {
+      expect(wrapper.find('canvas'));
+    });
+  });
+});
