@@ -3,23 +3,12 @@
 ---------------------------------------------------------------------------------------------------
 
 CREATE STREAM CLICKSTREAM_CODES (
-        CODE INTEGER,
-        definition varchar
-    ) with (
-        kafka_topic = 'CLICKSTREAM_CODES',
-        value_format = 'json'
-    );
-
--- If topic was not created ahead of time for the stream, it will result in an error
--- However, ksqlDB gives a suggestion that wraps the creation of the topic, paritions, and replication in one
-
--- CREATE STREAM CLICKSTREAM_CODES (
---   CODE INTEGER, DEFINITION STRING
---   ) WITH (
---     KAFKA_TOPIC='CLICKSTREAM_CODES', 
---     PARTITIONS=2, 
---     REPLICAS=1, 
---     VALUE_FORMAT='json');
+  CODE INTEGER, DEFINITION STRING
+  ) WITH (
+    KAFKA_TOPIC='CLICKSTREAM_CODES', 
+    PARTITIONS=2, 
+    REPLICAS=1, 
+    VALUE_FORMAT='json');
 
 ---------------------------------------------------------------------------------------------------
 -- Build materialized table views:
