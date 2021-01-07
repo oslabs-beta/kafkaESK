@@ -12,10 +12,7 @@ configure({ disableLifecycleMethods: true });
 describe('React unit tests', () => {
 
     let wrapper; 
-    let props = {
-        data: "data"
-    }; 
-
+    
     describe('LineChart', () => {
 
         beforeAll(() => {
