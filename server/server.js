@@ -13,13 +13,12 @@ const io = socketio(server, {
 
 const cors = require("cors");
 const morgan = require("morgan");
-const { Kafka, CompressionTypes, CompressionCodecs } = require("kafkajs"); // we need to install kafkajs
+const { Kafka, CompressionTypes, CompressionCodecs } = require("kafkajs"); 
 const SnappyCodec = require("kafkajs-snappy");
-// const { exec } = require('child_process'); // ?
 
 CompressionCodecs[CompressionTypes.Snappy] = SnappyCodec;
 
-// instantiating the KafkaJS client by pointing it towards at least one broke
+// instantiate the KafkaJS client by pointing it towards at least one broker
 const kafka = new Kafka({
   clientId: "my-app",
   brokers: ["localhost:9092", "localhost:9092"],

@@ -10,9 +10,9 @@
     ]
   },
   "scripts": {
-    "start": "nodemon server/server.js & webpack-dev-server --open",
     "test": "jest --verbose",
-    "create": "webpack"
+    "start": "nodemon ./server/server.js & webpack-dev-server --open",
+    "create": "webpack --config ./webpack.config.js"
   },
   "repository": {
     "type": "git",
