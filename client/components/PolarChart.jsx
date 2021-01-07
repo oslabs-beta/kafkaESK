@@ -32,33 +32,33 @@ class PolarChart extends React.Component {
     const socket = io.connect('http://localhost:3333');
 
     // Connects 404 Error Consumer
-    socket.on("404_ERRORS_PER_MIN", data => {
+    socket.on('404_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.data.datasets; // array
 
       // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
-      updatedDataSets[0].data[0] = message.COUNT; 
+      updatedDataSets[0].data[0] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state.data, 
-            datasets: updatedDataSets[0][data][0], 
-        };
+        ...this.state.data,
+        datasets: updatedDataSets[0][data][0],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ data: newChartData });
-      });
+    });
 
     // Connects 405 Error Consumer
-    socket.on('405_ERRORS_PER_MIN', data => {
+    socket.on('405_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.data.datasets;
 
@@ -67,21 +67,21 @@ class PolarChart extends React.Component {
 
       updatedDataSets[0].data[1] = message.COUNT;
 
-      // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state.data, 
-            datasets: updatedDataSets[0][data][1], 
-        };
+        ...this.state.data,
+        datasets: updatedDataSets[0][data][1],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ data: newChartData });
     });
 
     // Connects 406 Error Consumer
-    socket.on('406_ERRORS_PER_MIN', data => {
+    socket.on('406_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.data.datasets;
 
@@ -90,21 +90,21 @@ class PolarChart extends React.Component {
 
       updatedDataSets[0].data[2] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state.data, 
-            datasets: updatedDataSets[0][data][2], 
-        };
+        ...this.state.data,
+        datasets: updatedDataSets[0][data][2],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ data: newChartData });
     });
 
     // Connects 407 Error Consumer
-    socket.on('407_ERRORS_PER_MIN', data => {
+    socket.on('407_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.data.datasets;
 
@@ -113,13 +113,13 @@ class PolarChart extends React.Component {
 
       updatedDataSets[0].data[3] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state.data, 
-            datasets: updatedDataSets[0][data][3], 
-        };
+        ...this.state.data,
+        datasets: updatedDataSets[0][data][3],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ data: newChartData });
     });
   }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import '../styles/mainchart.scss';
 
@@ -6,7 +6,7 @@ import '../styles/mainchart.scss';
 class DoughnutChart extends Component {
   constructor(props) {
     super(props);
-    // state holds labels for each error type and single data point for each current count(datasets:[{data:[]}]) 
+    // state holds labels for each error type and single data point for each current count(datasets:[{data:[]}])
     this.state = {
       labels: ['404', '405', '406', '407'],
       datasets: [
@@ -26,43 +26,43 @@ class DoughnutChart extends Component {
     socket.on('404_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.datasets; // array
 
       // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
-      updatedDataSets[0].data[0] = message.COUNT; 
+      updatedDataSets[0].data[0] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state, 
-            datasets: updatedDataSets[0][data][0], 
-        };
-      
-      // set the state of chartData to updated version 
+        ...this.state,
+        datasets: updatedDataSets[0][data][0],
+      };
+
+      // set the state of chartData to updated version
       this.setState({ datasets: newChartData });
-    })
-      // Connects 404 Error Consumer
+    });
+    // Connects 404 Error Consumer
     socket.on('405_ERRORS_PER_MIN', (data) => {
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.datasets; // array
 
       // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
-      updatedDataSets[0].data[1] = message.COUNT; 
+      updatedDataSets[0].data[1] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state, 
-            datasets: updatedDataSets[0][data][1], 
-        };
+        ...this.state,
+        datasets: updatedDataSets[0][data][1],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ datasets: newChartData });
     });
 
@@ -70,22 +70,22 @@ class DoughnutChart extends Component {
     socket.on('406_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.datasets; // array
 
       // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
-      updatedDataSets[0].data[2] = message.COUNT; 
+      updatedDataSets[0].data[2] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state, 
-            datasets: updatedDataSets[0][data][2], 
-        };
+        ...this.state,
+        datasets: updatedDataSets[0][data][2],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ datasets: newChartData });
     });
 
@@ -93,22 +93,22 @@ class DoughnutChart extends Component {
     socket.on('407_ERRORS_PER_MIN', (data) => {
       // parse incoming data
       const message = JSON.parse(data);
-      
+
       // store the current datasets array in a variable
       const currDataSets = this.state.datasets; // array
 
       // create a new data variable, spread current datasets into new array
       const updatedDataSets = [...currDataSets];
 
-      updatedDataSets[0].data[3] = message.COUNT; 
+      updatedDataSets[0].data[3] = message.COUNT;
 
-          // variable for storing updated version of state 
+      // variable for storing updated version of state
       const newChartData = {
-            ...this.state, 
-            datasets: updatedDataSets[0][data][3], 
-        };
+        ...this.state,
+        datasets: updatedDataSets[0][data][3],
+      };
 
-      // set the state of chartData to updated version 
+      // set the state of chartData to updated version
       this.setState({ datasets: newChartData });
     });
   }
