@@ -175,3 +175,6 @@ We are always interested in adding new contributors. What we look for is a serie
   - Fixed critical bugs (including performance improvements).
   - Made major tech-debt cleanup.
   - Made major documentation improvements.
+
+## License
+MIT License
