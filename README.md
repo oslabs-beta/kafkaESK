@@ -6,7 +6,7 @@
 
 ## **About:**
 KafkaESK, currently in Beta, is an event-driven monitoring tool that can consume messages from Apache Kafka clusters and display the aggregated data on a dashboard for analysis and maintenance.<br> Used in a pipeline that includes **Apache Kafka Connect** (for writing sources and sinks that either ingests the entire database and stream table updates to Kafka topics or continuously delivers data from the topics into external systems) and **ksqlDB** (for stream processing that enables executing continuous computations over an unbounded stream of events), KafkaESK can incrementally update in real-time as events arrive.<br> 
-This powerful tool can be used to digest live data from IoT/technology sensors, machine performance, and even website activity such as clickstreams.
+This powerful tool can be used to digest live data from IoT/smart sensor technology, machine performance, and even website activity such as clickstreams.
 <br>
 
 ### Stretch Features Include:
