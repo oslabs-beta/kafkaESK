@@ -39,10 +39,10 @@ For demonstration purposes, mock data is used to simulate a live stream of HTTP 
 
 </center>
 <br>
-1. Install all NPM dependencies by running the following command while inside the cloned repo directory:
+1. Run the following command while inside the cloned repo directory:
 
 ```bash
-npm install
+docker run -d -p 8080:8080 -p 3333:3333 --name kafka kafkaesk
 ```
 
 2. Open a terminal and launch the Confluent Platform using the Confluent CLI `confluent local services start` command. This command starts all of the Confluent Platform components, including Kafka, ZooKeeper, Schema Registry, HTTP REST Proxy for Kafka, Kafka Connect, ksqlDB, and Control Center.
