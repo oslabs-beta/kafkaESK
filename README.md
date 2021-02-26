@@ -21,6 +21,7 @@ This powerful tool can be used to digest live data from IoT/smart sensor technol
 - Time machine capability
 
 ## **Prerequisites:**
+- Docker version 1.11 or later is [installed and running](https://docs.docker.com/engine/install/).
 - At the time of release, KafkaESK operates in conjunction with the Confluent Platform(version 6.0.0). Use these installation methods to quickly get a Confluent Platform development environment up and running on your local machine.
 
   - [Quick Start for Apache Kafka using Confluent Platform (Local)](https://docs.confluent.io/platform/current/quickstart/ce-quickstart.html#ce-quickstart)
