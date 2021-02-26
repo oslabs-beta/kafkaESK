@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "jest --verbose",
-    "start": "nodemon ./server/server.js & webpack-dev-server --open",
+    "start": "nodemon ./server/server.js & webpack-dev-server --open --hot --host 0.0.0.0",
     "create": "webpack --config ./webpack.config.js"
   },
   "repository": {
